@@ -19,7 +19,7 @@ function Menu(){
         <div><img src={e.src} height="100" width="200" onClick={()=>navigate("/option/"+e.id)}></img><span>{e.name}</span><span>{e.price}</span>
             
             
-        </div>
+         </div>
         )}
         )}
         <hr></hr>
