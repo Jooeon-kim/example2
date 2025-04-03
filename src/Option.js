@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom";
-import { setOption } from "./mainSlice";
+import { addToCart, setOption } from "./mainSlice";
 
 function Option (props){
     const cartList = useSelector((state)=>state.main.cartList);
@@ -24,7 +24,8 @@ function Option (props){
                 <label>Large</label><input type="radio" value="Large" name="option2"></input>
                 <label>Medium</label><input type="radio" value="Medium" name="option2"></input>
                 
-                <button type="submit" onClick={()=>navigate("/menu")}>확인</button>
+                <button type="submit" onClick={()=>{dispatch(addToCart(id)); navigate("/menu")}}>확인</button>
+               
             </form>
         </>
     )

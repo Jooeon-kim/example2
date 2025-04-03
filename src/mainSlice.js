@@ -33,6 +33,7 @@ const mainSlice = createSlice({
         },
         clearCart:(state)=>{
             state.cartList=[];
+            state.cartListId=0;
         },
         setOption:(state,action)=>{
             const { id,_option1,_option2 } = action.payload;

@@ -17,12 +17,8 @@ function Menu(){
         {menuList.map((e)=>{
             return(
         <div><img src={e.src} height="100" width="200" onClick={()=>navigate("/option/"+e.id)}></img><span>{e.name}</span><span>{e.price}</span>
-            <button onClick={()=>{
-            dispatch(addToCart(e.id))
-            }}>추가</button> 
-            <Link to={`/option/${e.id}`}>
-            <button>옵션 선택</button>
-            </Link>
+            
+            
         </div>
         )}
         )}
