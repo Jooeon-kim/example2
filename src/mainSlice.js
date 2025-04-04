@@ -1,12 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-<<<<<<< HEAD
-import Coffee from "./음료/Coffee/Coffee1.jpg";
-import nonCoffeeList from "./음료/Latte_Ade/Ade1";
-=======
-import notebook from "./img/노트북.webp"
-import tab from "./img/태블릿.webp"
-import hand from "./img/핸드폰.webp"
->>>>>>> 59e97345b63126e85265202f7314196ac58e035a
 
 const mainSlice = createSlice({
     name:"main",
