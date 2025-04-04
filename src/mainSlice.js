@@ -220,7 +220,7 @@ const mainSlice = createSlice({
         option2: null,
       },
     ],
-    ciabatta: [
+    ciabattaList: [
       {
         id: 1,
         src: "./dessert/ciabatta/ciabatta1.jpg",
@@ -252,8 +252,24 @@ const mainSlice = createSlice({
         menu.amount = amount;
       }
     },
-    addToCart: (state, action) => {
-      const product = state.menuList.find(
+    addToCartCake: (state, action) => {
+      const product = state.cakeList.find(
+        (e) => e.id === Number(action.payload)
+      );
+      const newCart = { ...product, cartListid: state.cartListId };
+      state.cartList.push(newCart);
+      state.cartListId++;
+    },
+    addToCartCiabatta: (state, action) => {
+      const product = state.ciabattaList.find(
+        (e) => e.id === Number(action.payload)
+      );
+      const newCart = { ...product, cartListid: state.cartListId };
+      state.cartList.push(newCart);
+      state.cartListId++;
+    },
+    addToCartCookie: (state, action) => {
+      const product = state.cookieList.find(
         (e) => e.id === Number(action.payload)
       );
       const newCart = { ...product, cartListid: state.cartListId };
@@ -286,6 +302,6 @@ const mainSlice = createSlice({
     },
   },
 });
-export const { setAmount, addToCart, removeList, clearCart, setOption } =
+export const { setAmount, addToCartCake, addToCartCookie, addToCartCiabatta, removeList, clearCart, setOption } =
   mainSlice.actions;
 export default mainSlice;

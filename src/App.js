@@ -25,7 +25,7 @@ function App() {
             <Route path="nonCoffee" element={<Noncoffee />}></Route>
             <Route path="smoothie" element={<Smoothie />}></Route>
           </Route>
-          <Route path="dessrt" element={<Dessert />}>
+          <Route path="dessert" element={<Dessert />}>
             <Route path="cake" element={<Cake />}></Route>
             <Route path="ciabatta" element={<Ciabatta />}></Route>
             <Route path="cookie" element={<Cookie />}></Route>

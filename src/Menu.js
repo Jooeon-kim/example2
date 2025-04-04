@@ -19,7 +19,7 @@ function Menu() {
           <Link to="/menu/drink">Drink</Link>
         </li>
         <li>
-          <Link to="/menu/dessrt">Dessert</Link>
+          <Link to="/menu/dessert">Dessert</Link>
         </li>
       </ul>
       <Outlet />
