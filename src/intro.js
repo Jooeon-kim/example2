@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import jj from "./img/non_Logo.jpg"
+import jj from "./img/non_Logo.png"
 function Intro (){
     const navigate = useNavigate();
     return (

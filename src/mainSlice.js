@@ -43,6 +43,11 @@ const mainSlice = createSlice({
                 option.option2 = _option2;
             }
         },
+        addVip:(state , action)=>{
+            const {_name, _phone} = action.payload;
+            state.vipList.push({name:_name , phone:_phone,point:0})
+        },
+       
     
 }});
 export const {setAmount,addToCart,removeList,clearCart,setOption}=mainSlice.actions;

@@ -21,9 +21,10 @@ function Option (props){
             }}>
                 <label>연하게</label><input type="radio" value="연하게" name="option1"></input>
                 <label>진하게</label><input type="radio" value="진하게" name="option1"></input>
+                <br></br>
                 <label>Large</label><input type="radio" value="Large" name="option2"></input>
                 <label>Medium</label><input type="radio" value="Medium" name="option2"></input>
-                
+                <br></br>
                 <button type="submit" onClick={()=>{dispatch(addToCart(id)); navigate("/menu")}}>확인</button>
                
             </form>
