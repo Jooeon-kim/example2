@@ -36,7 +36,7 @@ const mainSlice = createSlice({
         },
         addToCart:(state,action)=>{
             const product =state.menuList.find((e)=>e.id===Number(action.payload))
-            const newCart = {...product , cartListid:state.cartListId}
+            const newCart = {...product , cartListId:state.cartListId}
             state.cartList.push(newCart);
             state.cartListId++;
         },
@@ -45,7 +45,7 @@ const mainSlice = createSlice({
         },
         clearCart:(state)=>{
             state.cartList=[];
-            state.cartListId=0;
+            state.cartListId=1;
         },
         setOption:(state,action)=>{
             const { id,_option1,_option2 } = action.payload;
@@ -53,7 +53,7 @@ const mainSlice = createSlice({
             if(menu){
                 menu.option1 = _option1;
                 menu.option2 = _option2;
-                const newCart = {...menu , cartListid:state.cartListId}
+                const newCart = {...menu , cartListId:state.cartListId}
                 state.cartListId++;
                 state.cartList.push(newCart)
             }
