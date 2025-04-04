@@ -10,8 +10,10 @@ export default function Smoothie() {
           <li>
             <Link to={'/optionSmoothie/' + e.id}>
               <img src={e.src} />
-              <span className="title">{e.name}</span>
-              <span className="price">{e.price}</span>
+              <div className="text_box">
+                <span className="title">{e.name}</span>
+                <span className="price">{e.price}</span>
+              </div>
             </Link>
           </li>
         );

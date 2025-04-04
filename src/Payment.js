@@ -8,22 +8,24 @@ function Payment() {
     result += Number(i.amount) * Number(i.price);
   }
   return (
-    <>
-      {cartList.map((e) => {
-        return (
-          <div>
-            <img src={e.src} height="50" width="100"></img>
-            <h4>{e.name}</h4>
-            <h4>{e.price}원</h4>
-            <h4>수량:{e.amount}</h4>
-          </div>
-        );
-      })}
-      <h3>최종결제금액:{result}</h3>
-      <h4>
-        <Link to="/result">결제하기</Link>
-      </h4>
-    </>
+    <div className="order_wrap">
+      <ul className="order_list">
+        {cartList.map((e) => {
+          return (
+            <li className="order_item">
+              <img src={e.src} />
+              <div className="text_box">
+                <span className="title">{e.name}</span>
+                <span className="price">{e.price} 원</span>
+                <span className="amount">수량: {e.amount}</span>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+      <strong className="total">최종결제금액: {result}</strong>
+      <Link to="/result" className="btn">결제하기</Link>
+    </div>
   );
 }
 export default Payment;

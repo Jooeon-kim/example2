@@ -25,29 +25,41 @@ function Menu() {
       </div>
 
       <div className="bottom_wrap">
-        <div className="cart_box">
-          <ul className="cart_list">
-            {cartList.map((e) => {
-              return (
-                <li className="cart_item" key={e.cartListid}>
-                  <div className="title_wrap">
-                    <em className="title">{e.name}</em>
-                    <input type="number" value={e.amount} onChange={(item) => dispatch(setAmount({ id: e.cartListid, amount: Number(item.target.value) }))}></input>
-                    <button onClick={() => dispatch(removeList(e.cartListid))}>X</button>
-                  </div>
-                  <ul className="opt_list">
-                    <li>{e.option1}</li>
-                    <li>{e.option2}{" "}</li>
-                  </ul>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <h2>장바구니</h2>
+        <button className="clear_btn" onClick={() => dispatch(clearCart())}>전체삭제</button>
+        
+        <div className="bottom_box">
+          <div className="cart_box">
+            <ul className="cart_list">
+              {cartList.map((e) => {
+                return (
+                  <li className="cart_item" key={e.cartListid}>
+                    <div className="title_wrap">
+                      <em className="title">{e.name}</em>
+                      <span className="control_box">
+                        <input type="number" value={e.amount} onChange={(item) => dispatch(setAmount({ id: e.cartListid, amount: Number(item.target.value) }))}></input>
+                        <button onClick={() => dispatch(removeList(e.cartListid))}>삭제</button>
+                      </span>
+                    </div>
+                    <ul className="opt_list">
+                      <li>{e.option1}</li>
+                      <li>{e.option2}{" "}</li>
+                    </ul>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
 
-        <strong className="total">Total:{result}</strong>
-        <button onClick={() => dispatch(clearCart())}>비우기</button>
-        <Link to="/payment" className="btn">다음</Link>
+
+          <div className="total_box">
+            <div className="total">
+              <span>합계</span>
+              <strong>{result} 원</strong>
+            </div>
+            <Link to="/payment" className="btn">주문하기</Link>
+          </div>
+        </div>
       </div>
 
     </main>

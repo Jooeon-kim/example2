@@ -12,8 +12,10 @@ export default function Ciabatta() {
           <li>
             <Link onClick={() => dispatch(addToCartCiabatta(e.id))}>
               <img src={e.src} />
-              <span className="title">{e.name}</span>
-              <span className="price">{e.price}</span>
+              <div className="text_box">
+                <span className="title">{e.name}</span>
+                <span className="price">{e.price}</span>
+              </div>
             </Link>
           </li>
         );

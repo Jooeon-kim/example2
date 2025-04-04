@@ -1,6 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import "./css/default.css";
-import "./css/App.css";
 import Intro from "./intro";
 import Menu from "./Menu";
 import Payment from "./Payment";
@@ -16,6 +14,8 @@ import Ciabatta from "./ciabatta";
 import Cookie from "./cookie";
 import Drink from "./drink";
 import Dessert from "./dessrt";
+import "./css/default.css";
+import "./css/App.css";
 
 function App() {
   return (

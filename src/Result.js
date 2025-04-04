@@ -11,21 +11,18 @@ function Result() {
   }
 
   return (
-    <>
-      <h1>주문이 완료되었습니다!</h1>
+    <div className="result_wrap">
+      <p className="notice">주문이 완료되었습니다!</p>
       {cartList.map((e) => {
         return (
           <div>
-            <span>{e.name}</span>
-            <span>:{e.amount}</span>
+            <span>{e.name} : {e.amount}</span>
           </div>
         );
       })}
-      <h1>결제금액:{result}</h1>
-      <Link to="/" onClick={() => dispatch(clearCart())}>
-        <h1>홈으로</h1>
-      </Link>
-    </>
+      <strong className="total">결제금액:{result}</strong>
+      <Link to="/" className="btn" onClick={() => dispatch(clearCart())}>처음으로</Link>
+    </div>
   );
 }
 export default Result;
