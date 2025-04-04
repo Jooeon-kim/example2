@@ -11,6 +11,7 @@ import Smoothie from './smoothie';
 import Cake from './cake';
 import Ciabatta from './ciabatta';
 import Cookie from './cookie';
+import Drink from './drink';
 
 function App() {
   return (
@@ -18,15 +19,15 @@ function App() {
     <Routes>
     <Route path="/" element={<Intro></Intro>}></Route>
     <Route path="/menu" element={<Menu></Menu>}>
-      <Route path='/drink' >
-        <Route path='/coffee' element={<Coffee/>}></Route>
-        <Route path='/nonCoffee' element={<Noncoffee/>}></Route>
-        <Route path='/smoothie' element={<Smoothie/>}></Route>
+      <Route path='drink' element={<Drink></Drink>}>
+        <Route path='coffee' element={<Coffee/>}></Route>
+        <Route path='nonCoffee' element={<Noncoffee/>}></Route>
+        <Route path='smoothie' element={<Smoothie/>}></Route>
       </Route>
-      <Route path='/menu/dessrt'>
+      <Route path='dessrt'>
         <Route path='cake' element={<Cake/>}></Route>
         <Route path='ciabatta' element={<Ciabatta/>}></Route>
-        <Route path='/cookie' element={<Cookie/>}></Route>
+        <Route path='cookie' element={<Cookie/>}></Route>
       </Route>
     </Route>
     <Route path="/option/:id" element={<Option />} />

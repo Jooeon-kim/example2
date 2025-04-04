@@ -4,7 +4,6 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 
 function Menu(){
     const dispatch = useDispatch();
-    const menuList = useSelector((state)=>state.main.menuList)
     const cartList = useSelector((state)=>state.main.cartList)
     const navigate = useNavigate();
     let result = 0 ;
@@ -15,21 +14,16 @@ function Menu(){
     return(
         <>
         <h1>menu</h1>
-        <Outlet/ >
-        {menuList.map((e)=>{
-            return(
-        <div><img src={e.src} height="100" width="200" onClick={()=>navigate("/option/"+e.id)}></img><span>{e.name}</span><span>{e.price}</span>
+        <Link>Drink</Link><Link>Dessert</Link>
+        <Outlet/>
 
-         </div>
-        )}
-        )}
         <hr></hr>
         <ul>
         {cartList.map((e)=>{
             return(
-            <li key={e.id}>{e.name}....<input type="number" value={e.amount} 
-            onChange={(item)=>dispatch(setAmount({id:e.id, amount:Number(item.target.value)}))}
-            ></input><button onClick={()=>dispatch(removeList(e.id))}>X</button><br></br>ㄴ{e.option1}ㄴ {e.option2} </li>
+            <li key={e.cartListid}>{e.name}....<input type="number" value={e.amount} 
+            onChange={(item)=>dispatch(setAmount({id:e.cartListid, amount:Number(item.target.value)}))}
+            ></input><button onClick={()=>dispatch(removeList(e.cartListid))}>X</button><br></br>ㄴ{e.option1}ㄴ {e.option2} </li>
         )})}
         </ul>
         <button onClick={()=>dispatch(clearCart())}>리셋</button>
