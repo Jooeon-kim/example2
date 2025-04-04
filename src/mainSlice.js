@@ -1,14 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
-import notebook from "./img/노트북.webp"
-import tab from "./img/태블릿.webp"
-import hand from "./img/핸드폰.webp"
+import Coffee from "./음료/Coffee/Coffee1.jpg";
+import nonCoffeeList from "./음료/Latte_Ade/Ade1";
+
 const mainSlice = createSlice({
     name:"main",
     initialState:{
-        menuList:[
-            {id:1, src:notebook, price:1000,name:"노트북", amount:1 ,option1:null,option2:null,},
-            {id:2, src:tab, price:1200 ,name:"태블릿", amount:1,option1:null,option2:null,},
-            {id:3, src:hand,price:1500 ,name:"핸드폰", amount:1,option1:null,option2:null,},
+        CoffeeList:[
+            {id:1, src:"./음료/Coffee/Coffee1.jpg", price:2500,name:"아메리카노 HOT", amount:1 ,option1:null,option2:null,},
+            {id:2, src:"./음료/Coffee/Coffee2.jpg", price:3000 ,name:"아메리카노 ICE", amount:1,option1:null,option2:null,},
+            {id:3, src:"./음료/Coffee/Coffee3.jpg", price:2800 ,name:"카페라떼 HOT", amount:1,option1:null,option2:null,},
+            {id:4, src:"./음료/Coffee/Coffee4.jpg", price:3300,name:"카페라떼 ICE", amount:1 ,option1:null,option2:null,},
+            {id:5, src:"./음료/Coffee/Coffee5.jpg", price:3500,name:"콜드브루", amount:1 ,option1:null,option2:null,},
+            {id:6, src:"./음료/Coffee/Coffee6.jpg", price:2000,name:"에스프레소", amount:1 ,option1:null,option2:null,},
+        ],
+        nonCoffeeList:[
+            {id:1, src:"./음료/Latte_Ade/Ade1", price:2500,name:"청포도 에이드", amount:1 ,option1:null,option2:null,},
+            {id:2, src:"./음료/Latte_Ade/Ade1", price:2500,name:"자몽 에이드", amount:1 ,option1:null,option2:null,},
+            {id:3, src:"./음료/Latte_Ade/Ade1", price:2500,name:"레몬 에이드", amount:1 ,option1:null,option2:null,},
+            {id:4, src:"./음료/Latte_Ade/Latte1", price:2500,name:"초코라떼 HOT", amount:1 ,option1:null,option2:null,},
+            {id:5, src:"./음료/Latte_Ade/Latte2", price:2500,name:"초코라떼 ICE", amount:1 ,option1:null,option2:null,},
+            {id:6, src:"./음료/Latte_Ade/Latte3", price:2500,name:"고구마라떼 HOT", amount:1 ,option1:null,option2:null,},
+            {id:7, src:"./음료/Latte_Ade/Latte4", price:2500,name:"고구마라떼 ICE", amount:1 ,option1:null,option2:null,},
         ],
         vipList:[
             {name:"김주언", phone: "01099605629",point:1000}
