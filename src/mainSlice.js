@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+<<<<<<< HEAD
 import Coffee from "./음료/Coffee/Coffee1.jpg";
 import nonCoffeeList from "./음료/Latte_Ade/Ade1";
+=======
+import notebook from "./img/노트북.webp"
+import tab from "./img/태블릿.webp"
+import hand from "./img/핸드폰.webp"
+>>>>>>> 59e97345b63126e85265202f7314196ac58e035a
 
 const mainSlice = createSlice({
     name:"main",
@@ -26,7 +32,7 @@ const mainSlice = createSlice({
             {name:"김주언", phone: "01099605629",point:1000}
         ],
         cartList:[],
-        cartListId:0,
+        cartListId:1,
     },
     reducers:{
         setAmount:(state,action)=>{
@@ -38,7 +44,9 @@ const mainSlice = createSlice({
         },
         addToCart:(state,action)=>{
             const product =state.menuList.find((e)=>e.id===Number(action.payload))
-            state.cartList.push(product);
+            const newCart = {...product , cartListid:state.cartListId}
+            state.cartList.push(newCart);
+            state.cartListId++;
         },
         removeList:(state,action)=>{
             state.cartList=state.cartList.filter((e)=>e.id !== Number(action.payload))
@@ -49,11 +57,15 @@ const mainSlice = createSlice({
         },
         setOption:(state,action)=>{
             const { id,_option1,_option2 } = action.payload;
-            const option = state.cartList.find((e)=>e.id===id)
-            if(option){
-                option.option1 = _option1;
-                option.option2 = _option2;
+            const menu = state.menuList.find((e)=>e.id===Number(id))
+            if(menu){
+                menu.option1 = _option1;
+                menu.option2 = _option2;
+                const newCart = {...menu , cartListid:state.cartListId}
+                state.cartListId++;
+                state.cartList.push(newCart)
             }
+ 
         },
         addVip:(state , action)=>{
             const {_name, _phone} = action.payload;

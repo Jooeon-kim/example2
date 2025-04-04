@@ -11,9 +11,11 @@ function Menu(){
     for(let i of cartList){
         result += Number(i.amount)*Number(i.price)
     }
+    // console.log(cartList)
     return(
         <>
         <h1>menu</h1>
+        
         {menuList.map((e)=>{
             return(
         <div><img src={e.src} height="100" width="200" onClick={()=>navigate("/option/"+e.id)}></img><span>{e.name}</span><span>{e.price}</span>
@@ -27,7 +29,7 @@ function Menu(){
             return(
             <li key={e.id}>{e.name}....<input type="number" value={e.amount} 
             onChange={(item)=>dispatch(setAmount({id:e.id, amount:Number(item.target.value)}))}
-            ></input><button onClick={()=>dispatch(removeList(e.id))}>X</button><br></br>ㄴ{e.option1}ㄴ {e.option2}</li>
+            ></input><button onClick={()=>dispatch(removeList(e.id))}>X</button><br></br>ㄴ{e.option1}ㄴ {e.option2} </li>
         )})}
         </ul>
         <button onClick={()=>dispatch(clearCart())}>리셋</button>
