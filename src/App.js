@@ -5,6 +5,8 @@ import Menu from "./Menu";
 import Payment from "./Payment";
 import Result from "./Result";
 import OptionCoffee from "./OptionCoffee";
+import OptionNonCoffee from "./OptionNoncoffee";
+import OptionSmoothie from "./OptionSmoothie";
 import Coffee from "./coffee";
 import Noncoffee from "./nonCoffee";
 import Smoothie from "./smoothie";
@@ -32,6 +34,9 @@ function App() {
           </Route>
         </Route>
         <Route path="/optionCoffee/:id" element={<OptionCoffee />} />
+        <Route path="/optionNoncoffee/:id" element={<OptionNonCoffee />} />
+        <Route path="/optionCoffee/:id" element={<OptionCoffee />} />
+        <Route path="/optionSmoothie/:id" element={<OptionSmoothie />} />
         <Route path="/payment" element={<Payment></Payment>}></Route>
         <Route path="/result" element={<Result></Result>}></Route>
       </Routes>
