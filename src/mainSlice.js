@@ -285,9 +285,9 @@ const mainSlice = createSlice({
       state.cartList = [];
       state.cartListId = 0;
     },
-    setOption: (state, action) => {
+    setOptionCoffee: (state, action) => {
       const { id, _option1, _option2 } = action.payload;
-      const menu = state.menuList.find((e) => e.id === Number(id));
+      const menu = state.coffeeList.find((e) => e.id === Number(id));
       if (menu) {
         menu.option1 = _option1;
         menu.option2 = _option2;
@@ -296,12 +296,34 @@ const mainSlice = createSlice({
         state.cartList.push(newCart);
       }
     },
+    setOptionNoncoffee: (state, action) => {
+        const { id, _option1, _option2 } = action.payload;
+        const menu = state.nonCoffeeList.find((e) => e.id === Number(id));
+        if (menu) {
+          menu.option1 = _option1;
+          menu.option2 = _option2;
+          const newCart = { ...menu, cartListid: state.cartListId };
+          state.cartListId++;
+          state.cartList.push(newCart);
+        }
+      },
+      setOptionSmoothie: (state, action) => {
+        const { id, _option1, _option2 } = action.payload;
+        const menu = state.smoothieList.find((e) => e.id === Number(id));
+        if (menu) {
+          menu.option1 = _option1;
+          menu.option2 = _option2;
+          const newCart = { ...menu, cartListid: state.cartListId };
+          state.cartListId++;
+          state.cartList.push(newCart);
+        }
+      },
     addVip: (state, action) => {
       const { _name, _phone } = action.payload;
       state.vipList.push({ name: _name, phone: _phone, point: 0 });
     },
   },
 });
-export const { setAmount, addToCartCake, addToCartCookie, addToCartCiabatta, removeList, clearCart, setOption } =
+export const { setAmount, addToCartCake, addToCartCookie, addToCartCiabatta, setOptionCoffee, setOptionNoncoffee, setOptionSmoothie, removeList, clearCart, setOption } =
   mainSlice.actions;
 export default mainSlice;

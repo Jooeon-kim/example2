@@ -4,7 +4,7 @@ import Intro from "./intro";
 import Menu from "./Menu";
 import Payment from "./Payment";
 import Result from "./Result";
-import Option from "./Option";
+import OptionCoffee from "./OptionCoffee";
 import Coffee from "./coffee";
 import Noncoffee from "./nonCoffee";
 import Smoothie from "./smoothie";
@@ -31,7 +31,7 @@ function App() {
             <Route path="cookie" element={<Cookie />}></Route>
           </Route>
         </Route>
-        <Route path="/option/:id" element={<Option />} />
+        <Route path="/optionCoffee/:id" element={<OptionCoffee />} />
         <Route path="/payment" element={<Payment></Payment>}></Route>
         <Route path="/result" element={<Result></Result>}></Route>
       </Routes>
