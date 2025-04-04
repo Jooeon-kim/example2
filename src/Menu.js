@@ -15,7 +15,7 @@ function Menu(){
     return(
         <>
         <h1>menu</h1>
-        
+        <Outlet/ >
         {menuList.map((e)=>{
             return(
         <div><img src={e.src} height="100" width="200" onClick={()=>navigate("/option/"+e.id)}></img><span>{e.name}</span><span>{e.price}</span>
