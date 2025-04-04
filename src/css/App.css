@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/* layout */
+body{background-color:#000;font-family:'NotoKr','Malgun Gothic','맑은 고딕',Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif;}
+.outer{width:800px;margin:0 auto;padding:20px 40px;box-sizing:border-box;background-color:#fff;}
+
+
+
+/* menu */
+.menu .tab{margin-bottom:10px;}
+.menu .tab + .tab{margin-bottom:20px;}
+.menu .tab ul{display:flex;gap:10px;}
+.menu .tab li{}
+.menu .tab li a{display:block;position:relative;min-width:120px;min-height:50px;padding:12px 10px 6px;border:1px solid #0e005c;border-radius:5px;text-align:center;color:#0e005c;font-size:16px;font-weight:00;line-height:normal;text-decoration:none;}
+
+.menu .menu_box{padding:40px;border:1px solid #323746;border-radius:20px;}
+.menu .menu_box ul{display:flex;flex-wrap:wrap;gap:20px;}
+.menu .menu_box li{flex-basis:calc((100% - 40px)/3);}
+.menu .menu_box li a{display:block;}
+.menu .menu_box li img{display:block;width:100%;height:200px;object-fit:cover;}
+.menu .menu_box li .title{}
+
+
+/* template */
+h1{}
+h2{font-size:20px;line-height:normal;letter-spacing:0;}
+.outer button, .btn{display:inline-block;position:relative;min-width:100px;margin:3px 2px;padding:9px 12px;box-sizing:border-box;border:1px solid #0e005c;border-radius:5px;background-color:#fff;vertical-align:top;text-align:center;color:#0e005c;font-size:15px;font-weight:400;line-height:20px;letter-spacing:-0.025em;text-decoration:none;transition-property:background-color,color,box-shadow;transition-duration:250ms;}
+.outer button:hover, .btn:hover{box-shadow:3px 4px 10px rgba(0,0,0,0.2);}
+
+/* cart_list */
+.bottom_wrap{position: relative;margin-top:20px;}
+.bottom_wrap .cart_box{border:1px solid #323746;border-radius:10px;}
+.bottom_wrap .cart_list{height:120px;overflow-x:auto;padding:20px;}
+.bottom_wrap .cart_item{padding:5px 0;border-bottom:1px solid #323746;}
+.bottom_wrap .cart_item .title{}
+.bottom_wrap .cart_list button{padding:0;min-width:24px;min-height:24px;}
+
+.bottom_wrap .opt_list{display:flex;gap:10px;}
+.bottom_wrap .opt_list li:before{display:inline;content:'└ ';}
+
+.total{display:block;}
+
+
+/* select_option */
+.select_option{border:1px solid #323746;border-radius:10px;padding:30px 40px;}
+.select_option h2{margin-bottom:10px;}
+.select_option ul{display:flex;gap:10px;}
+.select_option ul.opt_list2{margin-top:4px;}
+.select_option button{margin-top:20px;}
+

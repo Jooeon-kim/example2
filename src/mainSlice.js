@@ -6,7 +6,7 @@ const mainSlice = createSlice({
     coffeeList: [
       {
         id: 1,
-        src: "./drink/coffee/coffee1.jpg",
+        src: "/image/drink/coffee/coffee1.jpg",
         price: 2500,
         name: "아메리카노 ICE",
         amount: 1,
@@ -15,7 +15,7 @@ const mainSlice = createSlice({
       },
       {
         id: 2,
-        src: "./drink/coffee/coffee2.jpg",
+        src: "/image/drink/coffee/coffee2.jpg",
         price: 3000,
         name: "아메리카노 HOT",
         amount: 1,
@@ -24,7 +24,7 @@ const mainSlice = createSlice({
       },
       {
         id: 3,
-        src: "./drink/coffee/coffee3.jpg",
+        src: "/image/drink/coffee/coffee3.jpg",
         price: 2800,
         name: "카페라떼 ICE",
         amount: 1,
@@ -33,7 +33,7 @@ const mainSlice = createSlice({
       },
       {
         id: 4,
-        src: "./drink/coffee/coffee4.jpg",
+        src: "/image/drink/coffee/coffee4.jpg",
         price: 3300,
         name: "카페라떼 HOT",
         amount: 1,
@@ -42,7 +42,7 @@ const mainSlice = createSlice({
       },
       {
         id: 5,
-        src: "./drink/coffee/coffee5.jpg",
+        src: "/image/drink/coffee/coffee5.jpg",
         price: 2000,
         name: "에스프레소",
         amount: 1,
@@ -51,7 +51,7 @@ const mainSlice = createSlice({
       },
       {
         id: 6,
-        src: "./drink/coffee/coffee6.jpg",
+        src: "/image/drink/coffee/coffee6.jpg",
         price: 3500,
         name: "콜드브루",
         amount: 1,
@@ -62,7 +62,7 @@ const mainSlice = createSlice({
     nonCoffeeList: [
       {
         id: 1,
-        src: "./drink/latte_ade/ade1.jpg",
+        src: "/image/drink/latte_ade/ade1.jpg",
         price: 2500,
         name: "청포도 에이드",
         amount: 1,
@@ -71,7 +71,7 @@ const mainSlice = createSlice({
       },
       {
         id: 2,
-        src: "./drink/latte_ade/ade2.jpg",
+        src: "/image/drink/latte_ade/ade2.jpg",
         price: 2500,
         name: "레몬 에이드",
         amount: 1,
@@ -80,7 +80,7 @@ const mainSlice = createSlice({
       },
       {
         id: 3,
-        src: "./drink/latte_ade/ade3.jpg",
+        src: "/image/drink/latte_ade/ade3.jpg",
         price: 2500,
         name: "자몽 에이드",
         amount: 1,
@@ -89,7 +89,7 @@ const mainSlice = createSlice({
       },
       {
         id: 4,
-        src: "./drink/latte_ade/latte1.jpg",
+        src: "/image/drink/latte_ade/latte1.jpg",
         price: 2500,
         name: "초코라떼 ICE",
         amount: 1,
@@ -98,7 +98,7 @@ const mainSlice = createSlice({
       },
       {
         id: 5,
-        src: "./drink/latte_ade/latte2.jpg",
+        src: "/image/drink/latte_ade/latte2.jpg",
         price: 2500,
         name: "초코라떼 HOT",
         amount: 1,
@@ -107,7 +107,7 @@ const mainSlice = createSlice({
       },
       {
         id: 6,
-        src: "./drink/latte_ade/latte3.jpg",
+        src: "/image/drink/latte_ade/latte3.jpg",
         price: 2500,
         name: "고구마라떼 HOT",
         amount: 1,
@@ -116,7 +116,7 @@ const mainSlice = createSlice({
       },
       {
         id: 7,
-        src: "./drink/latte_ade/latte4.jpg",
+        src: "/image/drink/latte_ade/latte4.jpg",
         price: 2500,
         name: "고구마라떼 ICE",
         amount: 1,
@@ -127,7 +127,7 @@ const mainSlice = createSlice({
     smoothieList: [
       {
         id: 1,
-        src: "./drink/smoothie/smoothie1.jpg",
+        src: "/image/drink/smoothie/smoothie1.jpg",
         price: 4800,
         name: "딸기 스무디",
         amount: 1,
@@ -136,7 +136,7 @@ const mainSlice = createSlice({
       },
       {
         id: 2,
-        src: "./drink/smoothie/smoothie2.jpg",
+        src: "/image/drink/smoothie/smoothie2.jpg",
         price: 4800,
         name: "코코넛 스무디",
         amount: 1,
@@ -145,7 +145,7 @@ const mainSlice = createSlice({
       },
       {
         id: 3,
-        src: "./drink/smoothie/smoothie3.jpg",
+        src: "/image/drink/smoothie/smoothie3.jpg",
         price: 4800,
         name: "블루베리 스무디",
         amount: 1,
@@ -154,7 +154,7 @@ const mainSlice = createSlice({
       },
       {
         id: 4,
-        src: "./drink/smoothie/smoothie4.jpg",
+        src: "/image/drink/smoothie/smoothie4.jpg",
         price: 4800,
         name: "망고 스무디",
         amount: 1,
@@ -165,7 +165,7 @@ const mainSlice = createSlice({
     cakeList: [
       {
         id: 1,
-        src: "./dessert/cake/cake1.jpg",
+        src: "/image/dessert/cake/cake1.jpg",
         price: 4800,
         name: "치즈 케이크",
         amount: 1,
@@ -174,7 +174,7 @@ const mainSlice = createSlice({
       },
       {
         id: 2,
-        src: "./dessert/cake/cake2.jpg",
+        src: "/image/dessert/cake/cake2.jpg",
         price: 4800,
         name: "초코 케이크",
         amount: 1,
@@ -183,7 +183,7 @@ const mainSlice = createSlice({
       },
       {
         id: 3,
-        src: "./dessert/cake/cake3.jpg",
+        src: "/image/dessert/cake/cake3.jpg",
         price: 4800,
         name: "티라미수 케이크",
         amount: 1,
@@ -194,7 +194,7 @@ const mainSlice = createSlice({
     cookieList: [
       {
         id: 1,
-        src: "./dessert/cookie/cookie1.jpg",
+        src: "/image/dessert/cookie/cookie1.jpg",
         price: 2800,
         name: "말차 스모어 쿠키",
         amount: 1,
@@ -203,7 +203,7 @@ const mainSlice = createSlice({
       },
       {
         id: 2,
-        src: "./dessert/cookie/cookie2.jpg",
+        src: "/image/dessert/cookie/cookie2.jpg",
         price: 2500,
         name: "밀크티 스모어 쿠키",
         amount: 1,
@@ -212,7 +212,7 @@ const mainSlice = createSlice({
       },
       {
         id: 3,
-        src: "./dessert/cookie/cookie3.jpg",
+        src: "/image/dessert/cookie/cookie3.jpg",
         price: 2800,
         name: "초코 스모어 쿠키",
         amount: 1,
@@ -223,7 +223,7 @@ const mainSlice = createSlice({
     ciabattaList: [
       {
         id: 1,
-        src: "./dessert/ciabatta/ciabatta1.jpg",
+        src: "/image/dessert/ciabatta/ciabatta1.jpg",
         price: 5800,
         name: "바질 치폴레 치킨",
         amount: 1,
@@ -232,7 +232,7 @@ const mainSlice = createSlice({
       },
       {
         id: 2,
-        src: "./dessert/ciabatta/ciabatta2.jpg",
+        src: "/image/dessert/ciabatta/ciabatta2.jpg",
         price: 5800,
         name: "핫치킨 앤 딥치즈",
         amount: 1,

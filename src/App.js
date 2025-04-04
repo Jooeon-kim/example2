@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
+import "./css/default.css";
+import "./css/App.css";
 import Intro from "./intro";
 import Menu from "./Menu";
 import Payment from "./Payment";
@@ -18,7 +19,7 @@ import Dessert from "./dessrt";
 
 function App() {
   return (
-    <>
+    <div className="outer">
       <Routes>
         <Route path="/" element={<Intro></Intro>}></Route>
         <Route path="/menu" element={<Menu></Menu>}>
@@ -40,7 +41,7 @@ function App() {
         <Route path="/payment" element={<Payment></Payment>}></Route>
         <Route path="/result" element={<Result></Result>}></Route>
       </Routes>
-    </>
+    </div>
   );
 }
 

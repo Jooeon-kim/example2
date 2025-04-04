@@ -12,48 +12,45 @@ function Menu() {
   }
   // console.log(cartList)
   return (
-    <>
+    <main>
       <h1>menu</h1>
-      <ul className="depth1">
-        <li>
-          <Link to="/menu/drink">Drink</Link>
-        </li>
-        <li>
-          <Link to="/menu/dessert">Dessert</Link>
-        </li>
-      </ul>
-      <Outlet />
+      <div className="menu">
+        <div className="tab">
+          <ul className="depth1">
+            <li><Link to="/menu/drink">Drink</Link></li>
+            <li><Link to="/menu/dessert">Dessert</Link></li>
+          </ul>
+        </div>
+        <Outlet />
+      </div>
 
-      <hr></hr>
-      <ul>
-        {cartList.map((e) => {
-          return (
-            <li key={e.cartListid}>
-              {e.name}....
-              <input
-                type="number"
-                value={e.amount}
-                onChange={(item) =>
-                  dispatch(
-                    setAmount({
-                      id: e.cartListid,
-                      amount: Number(item.target.value),
-                    })
-                  )
-                }
-              ></input>
-              <button onClick={() => dispatch(removeList(e.cartListid))}>
-                X
-              </button>
-              <br></br>ㄴ{e.option1}ㄴ {e.option2}{" "}
-            </li>
-          );
-        })}
-      </ul>
-      <button onClick={() => dispatch(clearCart())}>리셋</button>
-      <h2>결제금액:{result}</h2>
-      <Link to="/payment">결제화면으로</Link>
-    </>
+      <div className="bottom_wrap">
+        <div className="cart_box">
+          <ul className="cart_list">
+            {cartList.map((e) => {
+              return (
+                <li className="cart_item" key={e.cartListid}>
+                  <div className="title_wrap">
+                    <em className="title">{e.name}</em>
+                    <input type="number" value={e.amount} onChange={(item) => dispatch(setAmount({ id: e.cartListid, amount: Number(item.target.value) }))}></input>
+                    <button onClick={() => dispatch(removeList(e.cartListid))}>X</button>
+                  </div>
+                  <ul className="opt_list">
+                    <li>{e.option1}</li>
+                    <li>{e.option2}{" "}</li>
+                  </ul>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        <strong className="total">Total:{result}</strong>
+        <button onClick={() => dispatch(clearCart())}>비우기</button>
+        <Link to="/payment" className="btn">다음</Link>
+      </div>
+
+    </main>
   );
 }
 export default Menu;

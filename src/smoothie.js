@@ -1,20 +1,21 @@
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, } from "react-router-dom";
 
 export default function Smoothie() {
   const smoothieList = useSelector((state) => state.main.smoothieList);
-  const navigate =useNavigate();
   return (
-    <>
+    <ul>
       {smoothieList.map((e) => {
         return (
-          <div>
-            <img src={e.src} height="100" width="200" onClick={()=>navigate('/optionSmoothie/'+e.id)}></img>
-            <span>{e.name}</span>
-            <span>{e.price}</span>
-          </div>
+          <li>
+            <Link to={'/optionSmoothie/' + e.id}>
+              <img src={e.src} />
+              <span className="title">{e.name}</span>
+              <span className="price">{e.price}</span>
+            </Link>
+          </li>
         );
       })}
-    </>
+    </ul>
   );
 }

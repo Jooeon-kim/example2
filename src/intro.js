@@ -3,15 +3,10 @@ import jj from "./img/non_Logo.png";
 function Intro() {
   const navigate = useNavigate();
   return (
-    <>
-      <img
-        src={jj}
-        height="200"
-        width="400"
-        onClick={() => navigate("/menu")}
-      ></img>
-      <h1></h1>
-    </>
+    <div className="index">
+      <img src={jj} onClick={() => navigate("/menu")} />
+      <h1>인트로</h1>
+    </div>
   );
 }
 export default Intro;
