@@ -1,6 +1,3 @@
-export default function Cake (){
-    return(
-        <>
-        </>
-    );
+export default function Cake() {
+  return <></>;
 }

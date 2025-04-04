@@ -1,6 +1,3 @@
-export default function Noncoffee (){
-    return(
-        <>
-        </>
-    );
+export default function Noncoffee() {
+  return <></>;
 }

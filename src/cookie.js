@@ -1,6 +1,3 @@
-export default function Cookie (){
-    return(
-        <>
-        </>
-    );
+export default function Cookie() {
+  return <></>;
 }

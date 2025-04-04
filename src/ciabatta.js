@@ -1,6 +1,3 @@
-export default function Ciabatta (){
-    return(
-        <>
-        </>
-    );
+export default function Ciabatta() {
+  return <></>;
 }

@@ -1,6 +1,3 @@
-export default function Smoothie (){
-    return(
-        <>
-        </>
-    );
+export default function Smoothie() {
+  return <></>;
 }
