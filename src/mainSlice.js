@@ -164,7 +164,7 @@ const mainSlice = createSlice({
     ],
     cakeList: [
       {
-        id: 1,
+        id: 100,
         src: "/image/dessert/cake/cake1.jpg",
         price: 4800,
         name: "치즈 케이크",
@@ -173,7 +173,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 2,
+        id: 101,
         src: "/image/dessert/cake/cake2.jpg",
         price: 4800,
         name: "초코 케이크",
@@ -182,7 +182,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 3,
+        id: 102,
         src: "/image/dessert/cake/cake3.jpg",
         price: 4800,
         name: "티라미수 케이크",
@@ -191,9 +191,10 @@ const mainSlice = createSlice({
         option2: null,
       },
     ],
+    
     cookieList: [
       {
-        id: 1,
+        id: 200,
         src: "/image/dessert/cookie/cookie1.jpg",
         price: 2800,
         name: "말차 스모어 쿠키",
@@ -202,7 +203,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 2,
+        id: 201,
         src: "/image/dessert/cookie/cookie2.jpg",
         price: 2500,
         name: "밀크티 스모어 쿠키",
@@ -211,7 +212,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 3,
+        id: 202,
         src: "/image/dessert/cookie/cookie3.jpg",
         price: 2800,
         name: "초코 스모어 쿠키",
@@ -220,9 +221,10 @@ const mainSlice = createSlice({
         option2: null,
       },
     ],
+    
     ciabattaList: [
       {
-        id: 1,
+        id: 300,
         src: "/image/dessert/ciabatta/ciabatta1.jpg",
         price: 5800,
         name: "바질 치폴레 치킨",
@@ -231,7 +233,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 2,
+        id: 301,
         src: "/image/dessert/ciabatta/ciabatta2.jpg",
         price: 5800,
         name: "핫치킨 앤 딥치즈",
@@ -254,34 +256,53 @@ const mainSlice = createSlice({
   reducers: {
     setAmount: (state, action) => {
       const { id, amount } = action.payload;
+      if (amount <= 0) {
+        state.cartList = state.cartList.filter((e) => e.cartListid !== id);
+      } else {
       const menu = state.cartList.find((e) => e.cartListid === id);
       if (menu) {
-        menu.amount = amount;
-      }
-    },
+        menu.amount = amount;}
+    }},
     addToCartCake: (state, action) => {
       const product = state.cakeList.find(
-        (e) => e.id === Number(action.payload)
+        (e) =>e.id === Number(action.payload)
       );
+     
+      console.log("찾은 상품:", product);
+      const exist = state.cartList.find((e)=>e.id===Number(action.payload))
+      if(exist){
+          exist.amount+=1;
+      }else{
       const newCart = { ...product, cartListid: state.cartListId };
       state.cartList.push(newCart);
       state.cartListId++;
+      }
     },
     addToCartCiabatta: (state, action) => {
       const product = state.ciabattaList.find(
         (e) => e.id === Number(action.payload)
       );
+      const exist = state.cartList.find((e)=>e.id === Number(action.payload))
+      if(exist){
+          exist.amount+=1;
+      }else{
       const newCart = { ...product, cartListid: state.cartListId };
       state.cartList.push(newCart);
       state.cartListId++;
+      }
     },
     addToCartCookie: (state, action) => {
       const product = state.cookieList.find(
         (e) => e.id === Number(action.payload)
       );
+      const exist = state.cartList.find((e)=>e.id === Number(action.payload))
+      if(exist){
+          exist.amount +=1;
+      }else{
       const newCart = { ...product, cartListid: state.cartListId };
       state.cartList.push(newCart);
       state.cartListId++;
+      }
     },
     removeList: (state, action) => {
       state.cartList = state.cartList.filter(
@@ -297,33 +318,57 @@ const mainSlice = createSlice({
       const { id, _option1, _option2 } = action.payload;
       const menu = state.coffeeList.find((e) => e.id === Number(id));
       if (menu) {
+        const existing = state.cartList.find((item) =>
+          item.name === menu.name && item.option1 === _option1 && item.option2 === _option2
+        );
+        if(existing){
+          existing.amount+=1;
+        }else{
+        
         menu.option1 = _option1;
         menu.option2 = _option2;
         const newCart = { ...menu, cartListid: state.cartListId };
         state.cartListId++;
         state.cartList.push(newCart);
+        }
       }
     },
     setOptionNoncoffee: (state, action) => {
         const { id, _option1, _option2 } = action.payload;
         const menu = state.nonCoffeeList.find((e) => e.id === Number(id));
         if (menu) {
+          const existing = state.cartList.find((item) =>
+            item.name === menu.name && item.option1 === _option1 && item.option2 === _option2
+          );
+          if(existing){
+            existing.amount+=1;
+          }else{
+          
           menu.option1 = _option1;
           menu.option2 = _option2;
           const newCart = { ...menu, cartListid: state.cartListId };
           state.cartListId++;
           state.cartList.push(newCart);
+          }
         }
       },
       setOptionSmoothie: (state, action) => {
         const { id, _option1, _option2 } = action.payload;
         const menu = state.smoothieList.find((e) => e.id === Number(id));
         if (menu) {
+          const existing = state.cartList.find((item) =>
+            item.name === menu.name && item.option1 === _option1 && item.option2 === _option2
+          );
+          if(existing){
+            existing.amount+=1;
+          }else{
+          
           menu.option1 = _option1;
           menu.option2 = _option2;
           const newCart = { ...menu, cartListid: state.cartListId };
           state.cartListId++;
           state.cartList.push(newCart);
+          }
         }
       },
       countTotalPrice:(state)=>{
