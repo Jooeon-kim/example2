@@ -27,7 +27,7 @@ function Menu() {
       <div className="bottom_wrap">
         <h2>장바구니</h2>
         <button className="clear_btn" onClick={() => dispatch(clearCart())}>전체삭제</button>
-        
+
         <div className="bottom_box">
           <div className="cart_box">
             <ul className="cart_list">

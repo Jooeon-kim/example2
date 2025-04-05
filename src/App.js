@@ -24,12 +24,12 @@ function App() {
         <Route path="/" element={<Intro></Intro>}></Route>
         <Route path="/menu" element={<Menu></Menu>}>
           <Route path="drink" element={<Drink></Drink>}>
-            <Route path="coffee" element={<Coffee />}></Route>
+            <Route index element={<Coffee />}></Route>
             <Route path="nonCoffee" element={<Noncoffee />}></Route>
             <Route path="smoothie" element={<Smoothie />}></Route>
           </Route>
           <Route path="dessert" element={<Dessert />}>
-            <Route path="cake" element={<Cake />}></Route>
+            <Route index element={<Cake />}></Route>
             <Route path="ciabatta" element={<Ciabatta />}></Route>
             <Route path="cookie" element={<Cookie />}></Route>
           </Route>
