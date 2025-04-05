@@ -1,8 +1,10 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { countTotalPrice } from "./mainSlice";
 
 function Payment() {
   const cartList = useSelector((state) => state.main.cartList);
+  const dispatch = useDispatch();
   let result = 0;
   for (let i of cartList) {
     result += Number(i.amount) * Number(i.price);
@@ -18,13 +20,15 @@ function Payment() {
                 <span className="title">{e.name}</span>
                 <span className="price">{e.price} 원</span>
                 <span className="amount">수량: {e.amount}</span>
+                <span>{e.option1} {e.option2}</span>
               </div>
             </li>
           );
         })}
       </ul>
       <strong className="total">최종결제금액: {result}</strong>
-      <Link to="/result" className="btn">결제하기</Link>
+      <Link to="/result" className="btn" >결제하기</Link>
+      <Link to="/vip" className="btn">적립하기</Link>
     </div>
   );
 }

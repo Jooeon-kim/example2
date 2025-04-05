@@ -240,9 +240,16 @@ const mainSlice = createSlice({
         option2: null,
       },
     ],
-    vipList: [{ name: "김주언", phone: "01099605629", point: 1000 }],
+    vipList: [
+      { name: "김주언", phone: "01099605629", point: 1000 },
+      { name: "장재호", phone: "01048948203", point: 13000},
+      { name: "장희용", phone: "01055304774", point: 2000},
+      { name: "김준홍", phone: "01093922716", point: 3000},
+
+    ],
     cartList: [],
     cartListId: 1,
+    totalPrice:0,
   },
   reducers: {
     setAmount: (state, action) => {
@@ -284,6 +291,7 @@ const mainSlice = createSlice({
     clearCart: (state) => {
       state.cartList = [];
       state.cartListId = 0;
+      state.totalPrice = 0;
     },
     setOptionCoffee: (state, action) => {
       const { id, _option1, _option2 } = action.payload;
@@ -318,12 +326,22 @@ const mainSlice = createSlice({
           state.cartList.push(newCart);
         }
       },
-    addVip: (state, action) => {
-      const { _name, _phone } = action.payload;
-      state.vipList.push({ name: _name, phone: _phone, point: 0 });
-    },
+      countTotalPrice:(state)=>{
+        let result =0;
+        for(let i of state.cartList){
+           result += i.amount*i.price;
+        }
+        state.totalPrice = result;
+      },
+      addPoint:(state,action)=>{
+        const vip = state.vipList.find((e)=>e.phone===action.payload)
+        vip.point += state.totalPrice*0.1;
+      }
+      
+      
+   
   },
 });
-export const { setAmount, addToCartCake, addToCartCookie, addToCartCiabatta, setOptionCoffee, setOptionNoncoffee, setOptionSmoothie, removeList, clearCart, setOption } =
+export const { setAmount,addPoint,countTotalPrice, addToCartCake, addToCartCookie, addToCartCiabatta, setOptionCoffee, setOptionNoncoffee, setOptionSmoothie, removeList, clearCart, setOption } =
   mainSlice.actions;
 export default mainSlice;

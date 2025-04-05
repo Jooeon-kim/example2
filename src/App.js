@@ -16,6 +16,8 @@ import Drink from "./drink";
 import Dessert from "./dessrt";
 import "./css/default.css";
 import "./css/App.css";
+import Vip from "./Vip";
+import VipResult from "./VipResult";
 
 function App() {
   return (
@@ -40,6 +42,9 @@ function App() {
         <Route path="/optionSmoothie/:id" element={<OptionSmoothie />} />
         <Route path="/payment" element={<Payment></Payment>}></Route>
         <Route path="/result" element={<Result></Result>}></Route>
+        <Route path="/vip" element={<Vip></Vip>}></Route>
+        <Route path="/vipresult/:phone" element={<VipResult/>}></Route>
+
       </Routes>
     </div>
   );

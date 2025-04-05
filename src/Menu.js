@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, clearCart, removeList, setAmount } from "./mainSlice";
+import { addToCart, clearCart, removeList, setAmount,countTotalPrice } from "./mainSlice";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 function Menu() {
@@ -57,7 +57,7 @@ function Menu() {
               <span>합계</span>
               <strong>{result} 원</strong>
             </div>
-            <Link to="/payment" className="btn">주문하기</Link>
+            <Link to="/payment" className="btn" onClick={()=>dispatch(countTotalPrice())}>주문하기</Link>
           </div>
         </div>
       </div>
