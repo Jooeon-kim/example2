@@ -336,12 +336,23 @@ const mainSlice = createSlice({
       addPoint:(state,action)=>{
         const vip = state.vipList.find((e)=>e.phone===action.payload)
         vip.point += state.totalPrice*0.1;
+      },
+      setPoint:(state,action)=>{
+        
+        const vip = state.vipList.find((e)=>e.phone===action.payload)
+        if(state.totalPrice>=vip.point){
+        state.totalPrice-=vip.point
+        vip.point=0;
+      }else{
+        vip.point-=state.totalPrice;
+        state.totalPrice=0;
       }
+      },
       
       
    
   },
 });
-export const { setAmount,addPoint,countTotalPrice, addToCartCake, addToCartCookie, addToCartCiabatta, setOptionCoffee, setOptionNoncoffee, setOptionSmoothie, removeList, clearCart, setOption } =
+export const { setAmount,addPoint,countTotalPrice,setPoint, addToCartCake, addToCartCookie, addToCartCiabatta, setOptionCoffee, setOptionNoncoffee, setOptionSmoothie, removeList, clearCart, setOption } =
   mainSlice.actions;
 export default mainSlice;
