@@ -35,7 +35,7 @@ function OptionCoffee(props) {
                     </ul>
                 </fieldset>
 
-                <button type="submit" onClick={() => { navigate("/menu/drink/coffee") }}>확인</button>
+                <button type="submit" onClick={() => { navigate("/menu/drink") }}>확인</button>
 
             </form>
         </div>

@@ -5,7 +5,7 @@ export default function Drink() {
     <>
       <div className="tab">
         <ul className="depth2">
-          <li><Link to="/menu/drink/coffee">Coffee</Link></li>
+          <li><Link to="/menu/drink">Coffee</Link></li>
           <li><Link to="/menu/drink/nonCoffee">nonCoffee</Link></li>
           <li><Link to="/menu/drink/smoothie">smoothie</Link></li>
         </ul>
