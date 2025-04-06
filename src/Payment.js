@@ -20,10 +20,12 @@ function Payment() {
                 <span className="title">{e.name}</span>
                 <span className="amount">수량: {e.amount}</span>
                 <span className="price">{e.price} 원</span>
-                <ul className="opt_list">
-                  <li>{e.option1}</li>
-                  <li>{e.option2}</li>
+                {(e.option1 || e.option2) && (
+                  <ul className="opt_list">
+                    {e.option1 && <li>{e.option1}</li>}
+                    {e.option2 && <li>{e.option2}</li>}
                   </ul>
+                )}
               </div>
             </li>
           );

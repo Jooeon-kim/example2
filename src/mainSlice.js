@@ -252,6 +252,7 @@ const mainSlice = createSlice({
     cartList: [],
     cartListId: 1,
     totalPrice:0,
+    orderNumber:450,
   },
   reducers: {
     setAmount: (state, action) => {
@@ -303,7 +304,7 @@ const mainSlice = createSlice({
       state.cartList.push(newCart);
       state.cartListId++;
       }
-    },
+    }, 
     removeList: (state, action) => {
       state.cartList = state.cartList.filter(
         (e) => e.cartListid !== Number(action.payload)
@@ -325,9 +326,8 @@ const mainSlice = createSlice({
           existing.amount+=1;
         }else{
         
-        menu.option1 = _option1;
-        menu.option2 = _option2;
-        const newCart = { ...menu, cartListid: state.cartListId };
+        const newMenu = { ...menu, option1: _option1, option2: _option2 };
+        const newCart = { ...newMenu, cartListid: state.cartListId };
         state.cartListId++;
         state.cartList.push(newCart);
         }
@@ -344,9 +344,8 @@ const mainSlice = createSlice({
             existing.amount+=1;
           }else{
           
-          menu.option1 = _option1;
-          menu.option2 = _option2;
-          const newCart = { ...menu, cartListid: state.cartListId };
+            const newMenu = { ...menu, option1: _option1, option2: _option2 };
+            const newCart = { ...newMenu, cartListid: state.cartListId };
           state.cartListId++;
           state.cartList.push(newCart);
           }
@@ -363,9 +362,8 @@ const mainSlice = createSlice({
             existing.amount+=1;
           }else{
           
-          menu.option1 = _option1;
-          menu.option2 = _option2;
-          const newCart = { ...menu, cartListid: state.cartListId };
+            const newMenu = { ...menu, option1: _option1, option2: _option2 };
+            const newCart = { ...newMenu, cartListid: state.cartListId };
           state.cartListId++;
           state.cartList.push(newCart);
           }
@@ -380,11 +378,14 @@ const mainSlice = createSlice({
       },
       addPoint:(state,action)=>{
         const vip = state.vipList.find((e)=>e.phone===action.payload)
-        vip.point += state.totalPrice*0.1;
+        if (vip) {
+          vip.point += state.totalPrice * 0.1;
+        }
       },
       setPoint:(state,action)=>{
         
         const vip = state.vipList.find((e)=>e.phone===action.payload)
+        if(vip){
         if(state.totalPrice>=vip.point){
         state.totalPrice-=vip.point
         vip.point=0;
@@ -392,12 +393,16 @@ const mainSlice = createSlice({
         vip.point-=state.totalPrice;
         state.totalPrice=0;
       }
-      },
+      }
+    },
+      setOrderNumber:(state)=>{
+        state.orderNumber+=1;
+      }
       
       
    
   },
 });
-export const { setAmount,addPoint,countTotalPrice,setPoint, addToCartCake, addToCartCookie, addToCartCiabatta, setOptionCoffee, setOptionNoncoffee, setOptionSmoothie, removeList, clearCart, setOption } =
+export const { setAmount,setOrderNumber,addPoint,countTotalPrice,setPoint, addToCartCake, addToCartCookie, addToCartCiabatta, setOptionCoffee, setOptionNoncoffee, setOptionSmoothie, removeList, clearCart, setOption } =
   mainSlice.actions;
 export default mainSlice;
