@@ -21,7 +21,7 @@ function OptionCoffee(props) {
                 <fieldset>
                     <legend>컵종류 선택</legend>
                     <ul className="opt_list1">
-                        <li><label><input type="radio" value="일회용" name="option1"></input>일회용</label></li>
+                        <li><label><input type="radio" value="일회용" name="option1" checked="true"></input>일회용</label></li>
                         <li><label><input type="radio" value="매장용" name="option1"></input>매장용</label></li>
                     </ul>
                 </fieldset>
@@ -30,7 +30,7 @@ function OptionCoffee(props) {
                     <legend>컵종류 선택</legend>
                     <ul className="opt_list2">
                         <li><label><input type="radio" value="Ragular" name="option2"></input>Ragular</label></li>
-                        <li><label><input type="radio" value="Medium" name="option2"></input>Medium</label></li>
+                        <li><label><input type="radio" value="Medium" name="option2" checked="true"></input>Medium</label></li>
                         <li><label><input type="radio" value="Large" name="option2"></input>Large</label></li>
                     </ul>
                 </fieldset>
