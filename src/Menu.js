@@ -13,9 +13,9 @@ function Menu() {
   // console.log(cartList)
   return (
     <main>
-      <h1>menu</h1>
+      <h2>메뉴선택</h2>
       <div className="menu">
-        <div className="tab">
+        <div className="tab tab1">
           <ul className="depth1">
             <li><Link to="/menu/drink">Drink</Link></li>
             <li><Link to="/menu/dessert">Dessert</Link></li>

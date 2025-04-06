@@ -18,15 +18,18 @@ function Payment() {
               <img src={e.src} />
               <div className="text_box">
                 <span className="title">{e.name}</span>
-                <span className="price">{e.price} 원</span>
                 <span className="amount">수량: {e.amount}</span>
-                <span>{e.option1} {e.option2}</span>
+                <span className="price">{e.price} 원</span>
+                <ul className="opt_list">
+                  <li>{e.option1}</li>
+                  <li>{e.option2}</li>
+                  </ul>
               </div>
             </li>
           );
         })}
       </ul>
-      <strong className="total">최종결제금액: {result}</strong>
+      <div className="total"><span>최종결제금액</span> <strong>{result}</strong></div>
       <Link to="/result" className="btn" >결제하기</Link>
       <Link to="/vip" className="btn">적립하기</Link>
     </div>
