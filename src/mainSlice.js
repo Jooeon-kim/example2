@@ -327,56 +327,79 @@ const mainSlice = createSlice({
       state.totalPrice = 0;
     },
     setOptionCoffee: (state, action) => {
-      const { id, _option1, _option2 } = action.payload;
+      const { id, _option1, _option2, _amount } = action.payload;
       const menu = state.coffeeList.find((e) => e.id === Number(id));
       if (menu) {
         const existing = state.cartList.find((item) =>
-          item.name === menu.name && item.option1 === _option1 && item.option2 === _option2
+          item.name === menu.name &&
+          item.option1 === _option1 &&
+          item.option2 === _option2
         );
-        if(existing){
-          existing.amount+=1;
-        }else{
-        
-        const newMenu = { ...menu, option1: _option1, option2: _option2 };
-        const newCart = { ...newMenu, cartListid: state.cartListId };
-        state.cartListId++;
-        state.cartList.push(newCart);
+        if (existing) {
+          existing.amount += _amount; // 현재 amount 만큼 추가
+        } else {
+          const newMenu = {
+            ...menu,
+            option1: _option1,
+            option2: _option2,
+            amount: _amount
+          };
+          const newCart = {
+            ...newMenu,
+            cartListid: state.cartListId
+          };
+          state.cartList.push(newCart);
+          state.cartListId++;
         }
       }
     },
     setOptionNoncoffee: (state, action) => {
-        const { id, _option1, _option2 } = action.payload;
-        const menu = state.nonCoffeeList.find((e) => e.id === Number(id));
-        if (menu) {
-          const existing = state.cartList.find((item) =>
-            item.name === menu.name && item.option1 === _option1 && item.option2 === _option2
-          );
-          if(existing){
-            existing.amount+=1;
-          }else{
-          
-            const newMenu = { ...menu, option1: _option1, option2: _option2 };
-            const newCart = { ...newMenu, cartListid: state.cartListId };
+      const { id, _option1, _option2, _amount } = action.payload;
+      const item = state.nonCoffeeList.find((e) => e.id === Number(id));
+      if (item) {
+        const exists = state.cartList.find(
+          (el) =>
+            el.name === item.name &&
+            el.option1 === _option1 &&
+            el.option2 === _option2
+        );
+        if (exists) {
+          exists.amount +=   _amount;
+        } else {
+          const newItem = {
+            ...item,
+            option1: _option1,
+            option2: _option2,
+            amount: _amount,
+            cartListid: state.cartListId,
+          };
+          state.cartList.push(newItem);
           state.cartListId++;
-          state.cartList.push(newCart);
-          }
         }
-      },
+      }
+    },
       setOptionSmoothie: (state, action) => {
-        const { id, _option1, _option2 } = action.payload;
-        const menu = state.smoothieList.find((e) => e.id === Number(id));
-        if (menu) {
-          const existing = state.cartList.find((item) =>
-            item.name === menu.name && item.option1 === _option1 && item.option2 === _option2
+        const { id, _option1, _option2, _amount } = action.payload;
+        const item = state.smoothieList.find((e) => e.id === Number(id));
+        if (item) {
+          const exists = state.cartList.find(
+            (el) =>
+              el.name === item.name &&
+              el.option1 === _option1 &&
+              el.option2 === _option2
           );
-          if(existing){
-            existing.amount+=1;
-          }else{
-          
-            const newMenu = { ...menu, option1: _option1, option2: _option2 };
-            const newCart = { ...newMenu, cartListid: state.cartListId };
-          state.cartListId++;
-          state.cartList.push(newCart);
+          if (exists) {
+            exists.amount += _amount;
+          } else {
+            const newItem = {
+              ...item,
+              option1: _option1,
+              option2: _option2,
+              amount: _amount,
+              cartListid: state.cartListId,
+            };
+            state.cartList.push(newItem);
+            state.cartListId++;
           }
         }
       },
