@@ -31,32 +31,36 @@ function VipResult() {
     };
   }, [dispatch, navigate]);
   return (
-    <div className="wrapper result_wrap">
-      <p className="vip_name">{vip.name}님!</p>
-      <p className="result_text">주문이 완료되었습니다!</p>
-      {cartList.map((e) => {
-        return (
-          <div>
-            <span>{e.name} : {e.amount}</span>
-            {(e.option1 || e.option2) && (
-              <ul className="opt_list">
-                {e.option1 && <li>{e.option1}</li>}
-                {e.option2 && <li>{e.option2}</li>}
-              </ul>
-            )}
-          </div>
-        );
-      })}
-      <div className="order_num">주문번호 <em>{orderNumber}</em></div>
-      {/* <div className="total">
+    <div className="result_wrap">
+      
+      <div className="wrapper">
+        <p className="vip_name">{vip.name}님!</p>
+        <p className="result_text">주문이 완료되었습니다!</p>
+        {cartList.map((e) => {
+          return (
+            <div>
+              <span>{e.name} : {e.amount}</span>
+              {(e.option1 || e.option2) && (
+                <ul className="opt_list">
+                  {e.option1 && <li>{e.option1}</li>}
+                  {e.option2 && <li>{e.option2}</li>}
+                </ul>
+              )}
+            </div>
+          );
+        })}
+        <div className="order_num">주문번호 <em>{orderNumber}</em></div>
+        {/* <div className="total">
         <span>결제금액</span>
         <strong>{totalPrice}</strong>
       </div> */}
-      <p>잔여포인트:{vip.point}</p>
+        <p>잔여포인트:{vip.point}</p>
 
-      <div className="count_wrap"><p className="notice">{countdown}초 후 메인화면으로 돌아갑니다.</p></div>
+        <div className="count_wrap"><p className="notice">{countdown}초 후 메인화면으로 돌아갑니다.</p></div>
 
-      <Link to="/" className="btn" onClick={() => dispatch(clearCart())}>처음으로</Link>
+        <Link to="/" className="btn" onClick={() => dispatch(clearCart())}>처음으로</Link>
+      </div>
+
     </div>
   );
 }
