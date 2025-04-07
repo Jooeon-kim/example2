@@ -17,15 +17,19 @@ function OptionCoffee(props) {
                 let state = e.target.option1.value;
                 let size = e.target.option2.value;
                 if (!state && !size) {
-                    state = "일회용";
-                    size = "Medium";
+                    alert("두가지 옵션 모두를 선택해주세요");
+                    return;
                 }
                 else if (!size) {
-                    size = "Medium"
+                    alert("음료 사이즈를 선택해주세요");
+                    return;
                 } else if (!state) {
-                    state = "일회용";
+                    alert("일회용 또는 매장용을 선택해주세요");
+                    return;
                 }
-                dispatch(setOptionCoffee({ id: id, _option1: state, _option2: size }));
+                dispatch(setOptionCoffee({ id: id, _option1: state, _option2: size }))
+
+                navigate("/menu/drink")
             }}>
 
                 <h2>옵션선택</h2>
@@ -62,7 +66,7 @@ function OptionCoffee(props) {
                     </div>
                 </div>
 
-                <button type="submit" className="btn type2 large" onClick={() => { navigate("/menu/drink") }}>선택</button>
+                <button type="submit" className="btn type2 large">선택</button>
 
             </form>
         </div>
