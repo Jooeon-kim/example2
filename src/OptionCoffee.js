@@ -21,7 +21,7 @@ function OptionCoffee(props) {
                 }
                 else if(!size){
                     size = "Medium"
-                }else{
+                }else if(!state){
                     state="일회용";
                 }
                 dispatch(setOptionCoffee({ id: id, _option1: state, _option2: size }));
