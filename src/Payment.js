@@ -10,7 +10,8 @@ function Payment() {
     result += Number(i.amount) * Number(i.price);
   }
   return (
-    <div className="wrapper order_wrap">
+    <div className="wrapper payment_wrap">
+      <h2>주문내용</h2>
       <ul className="order_list">
         {cartList.map((e) => {
           return (
@@ -18,7 +19,7 @@ function Payment() {
               <img src={e.src} />
               <div className="text_box">
                 <span className="title">{e.name}</span>
-                <span className="amount">수량: {e.amount}</span>
+                <span className="amount">수량 <em>{e.amount}</em></span>
                 <span className="price">{e.price} 원</span>
                 {(e.option1 || e.option2) && (
                   <ul className="opt_list">
@@ -31,8 +32,11 @@ function Payment() {
           );
         })}
       </ul>
-      <div className="total"><span>최종결제금액</span> <strong>{result}</strong></div>
-      <Link to="/result" className="btn" >결제하기</Link>
+      <div className="total">
+        <span>결제금액</span>
+        <strong>{result} 원</strong>
+      </div>
+      <Link to="/result" className="btn">결제하기</Link>
       <Link to="/vip" className="btn">적립하기</Link>
     </div>
   );
