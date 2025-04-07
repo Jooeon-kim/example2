@@ -15,7 +15,7 @@
 
 /* layout */
 body{background-color:#000;font-family:'NotoKr','Malgun Gothic','맑은 고딕',Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif;}
-.outer{overflow:hidden;width:800px;height:940px;margin:0 auto;padding:20px 40px;box-sizing:border-box;background-color:#fff;}
+.outer{overflow:hidden;width:800px;/*height:940px;*/margin:0 auto;padding:20px 40px;box-sizing:border-box;background-color:#fff;}
 
 
 
@@ -58,9 +58,9 @@ button:hover, .btn:hover{background-color:#61443a;border-color:#61443a;color:#ff
 /* 공통 */
 .wrapper{border:1px solid #666;border-radius:10px;padding:30px 40px;}
 
-.wrapper .total{line-height:30px;font-weight:600;}
-.wrapper .total span{font-size:20px;}
-.wrapper .total strong{margin-left:10px;color:#d92027;font-size:25px;}
+.total{line-height:30px;font-weight:600;}
+.total span{font-size:20px;}
+.total strong{margin-left:10px;color:#d92027;font-size:25px;}
 
 
 /* cart_list */
@@ -117,7 +117,8 @@ button:hover, .btn:hover{background-color:#61443a;border-color:#61443a;color:#ff
 
 
 /* payment_wrap 주문확인 */
-.payment_wrap .order_list{padding-bottom:10px;border-bottom:2px solid #323746;}
+.payment_wrap .wrapper{padding-right:0px;}/*  */
+.payment_wrap .order_list{overflow:auto;max-height:700px;padding-bottom:10px;/* border-bottom:2px solid #323746; */}
 .payment_wrap .order_item{padding-bottom:12px;}
 .payment_wrap .order_item:nth-child(n+2){padding-top:10px;border-top:1px solid #ccc;}
 .payment_wrap .order_item img{width:100px;}
@@ -142,7 +143,7 @@ button:hover, .btn:hover{background-color:#61443a;border-color:#61443a;color:#ff
 .vip_wrap .btn_box{margin-top:30px;}
 
 /* result */
-.result_wrap{border:1px solid #666;border-radius:10px;padding:30px 40px;text-align:center;}
+.result_wrap{/* border:1px solid #666;border-radius:10px;padding:30px 40px; */text-align:center;}
 .result_wrap .vip_name{font-size:18px;}
 .result_wrap .result_text{margin:50px 0 30px;font-size:20px;font-weight:600;}
 .result_wrap .order_num{font-size:18px;}
