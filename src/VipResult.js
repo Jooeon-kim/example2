@@ -32,11 +32,11 @@ function VipResult() {
   }, [dispatch, navigate]);
   return (
     <div className="result_wrap">
-      
+
       <div className="wrapper">
         <p className="vip_name">{vip.name}님!</p>
         <p className="result_text">주문이 완료되었습니다!</p>
-        {cartList.map((e) => {
+        {/* {cartList.map((e) => {
           return (
             <div>
               <span>{e.name} : {e.amount}</span>
@@ -48,7 +48,7 @@ function VipResult() {
               )}
             </div>
           );
-        })}
+        })} */}
         <div className="order_num">주문번호 <em>{orderNumber}</em></div>
         {/* <div className="total">
         <span>결제금액</span>

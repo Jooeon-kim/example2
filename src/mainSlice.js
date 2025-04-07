@@ -274,7 +274,7 @@ const mainSlice = createSlice({
       const menu = state.cartList.find((e) => e.cartListid === id);
       if (menu) {
         menu.amount = amount;}
-    }},
+    }}, 
     addToCartCake: (state, action) => {
       const product = state.cakeList.find(
         (e) =>e.id === Number(action.payload)

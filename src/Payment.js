@@ -39,8 +39,8 @@ function Payment() {
         <span>결제금액</span>
         <strong>{result} 원</strong>
       </div>
-      <Link to="/result" className="btn">결제하기</Link>
-      <Link to="/vip" className="btn">포인트 적립/사용</Link>
+      <Link to="/result" className="btn type2 large">결제하기</Link>
+      <Link to="/vip" className="btn large">포인트 적립/사용</Link>
 
     </div>
   );
