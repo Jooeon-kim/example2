@@ -55,7 +55,7 @@ button:hover, .btn:hover{background-color:#61443a;border-color:#61443a;color:#ff
 
 .outer button:nth-of-type(n+2), .btn:nth-of-type(n+2){margin-left:8px;}
 .outer button:hover, .btn:hover{box-shadow:3px 4px 10px rgba(0,0,0,0.2);}
-.notice{display:block;position:relative;padding-left:26px;}
+.notice{position:relative;padding-left:26px;}
 .notice::before{display:block;position:absolute;top:calc(50% - 10px);left:0;width:20px;height:20px;background:url(../image/warning_icons.png) 0 0 no-repeat;}
 .warning{display:block;position:relative;padding-left:25px;color:#f15d4e;}
 .warning::before{display:block;position:absolute;top:calc(50% - 10px);left:0;width:20px;height:20px;background:url(../image/warning_icons.png) -40px 0 no-repeat;}
@@ -167,12 +167,14 @@ button:hover, .btn:hover{background-color:#61443a;border-color:#61443a;color:#ff
 .vip_wrap .vip_name{margin-top:24px;font-size:18px;}
 .vip_wrap .warning{margin-top:10px;}
 .vip_wrap .vip_name em{font-weight:600;}
-.vip_wrap .vip_point{margin-top:10px;}
+.vip_wrap .vip_point{margin-top:10px;font-size:17px;}
 .vip_wrap .vip_point em{font-weight:600;}
 
 .vip_wrap .btn_box{margin-top:30px;}
 .vip_wrap .save_btn{margin-bottom:10px;}
-.vip_wrap .use_btn{margin-right:10px;}
+.vip_wrap .use_point > *{vertical-align:middle;}
+.vip_wrap .use_point span{margin:0 3px 0 10px;}
+.vip_wrap .use_point .use_btn{margin-right:10px;}
 
 /* result */
 .result_wrap{/* border:1px solid #666;border-radius:10px;padding:30px 40px; */text-align:center;}
