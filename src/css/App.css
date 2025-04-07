@@ -26,7 +26,18 @@ body{background-color:#000;font-family:'NotoKr','Malgun Gothic','맑은 고딕',
 .menu .tab li{}
 .menu .tab .depth1 li a{display:block;position:relative;min-width:140px;min-height:50px;padding:12px 10px 6px;border:1px solid #ccc;border-radius:10px;text-align:center;color:#000;font-size:16px;font-weight:600;text-decoration:none;transition:all 250ms;}
 .menu .tab .depth1 li a:hover{background-color:#61443a;border-color:#61443a;color:#fff;box-shadow:3px 4px 10px rgba(0,0,0,0.2);}
-
+.menu .tab .depth2 li a.active {
+    background-color: #61443a;
+    color: #fff;
+    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .menu .tab .depth1 li a.active {
+    background-color: #61443a;
+    color: #fff;
+    border-color: #61443a;
+    box-shadow: 3px 4px 10px rgba(0,0,0,0.2);
+  }
+  
 .menu .tab .depth2 li a{display:block;min-width:115px;padding:12px 10px;background-color:#eee;border-radius:10px;text-align:center;color:#000;font-size:16px;font-weight:600;text-decoration:none;transition:all 250ms;}
 .menu .tab .depth2 li a:hover{background-color:#61443a;color:#fff;box-shadow:3px 4px 10px rgba(0,0,0,0.1);}
 

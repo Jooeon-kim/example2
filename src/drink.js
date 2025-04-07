@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 export default function Drink() {
   return (
@@ -6,9 +6,9 @@ export default function Drink() {
       <div className="menu_box">
         <div className="tab tab2">
           <ul className="depth2">
-            <li><Link to="/menu/drink">Coffee</Link></li>
-            <li><Link to="/menu/drink/nonCoffee">nonCoffee</Link></li>
-            <li><Link to="/menu/drink/smoothie">smoothie</Link></li>
+          <li><NavLink to="/menu/drink" end>Coffee</NavLink></li>
+            <li><NavLink to="/menu/drink/nonCoffee">nonCoffee</NavLink></li>
+            <li><NavLink to="/menu/drink/smoothie">smoothie</NavLink></li>
           </ul>
         </div>
         <div className="box_wrap">

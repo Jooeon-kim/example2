@@ -259,13 +259,17 @@ const mainSlice = createSlice({
       option1: null,
       option2: null,
     }],
-
+    //장바구니
     cartList: [],
+    //장바구니에 추가될때 가지는 고유 id
     cartListId: 1,
+    //결제금액 초기값
     totalPrice:0,
+    //주문번호 초기값
     orderNumber:450,
   },
   reducers: {
+    //장바구니에서 amount 조절 
     setAmount: (state, action) => {
       const { id, amount } = action.payload;
       if (amount <= 0) {
@@ -275,6 +279,7 @@ const mainSlice = createSlice({
       if (menu) {
         menu.amount = amount;}
     }}, 
+    //cake 메뉴를 장바구니로 추가가
     addToCartCake: (state, action) => {
       const product = state.cakeList.find(
         (e) =>e.id === Number(action.payload)
@@ -290,6 +295,7 @@ const mainSlice = createSlice({
       state.cartListId++;
       }
     },
+    //ciabatta 메뉴를 장바구니로 추가가
     addToCartCiabatta: (state, action) => {
       const product = state.ciabattaList.find(
         (e) => e.id === Number(action.payload)
@@ -303,6 +309,7 @@ const mainSlice = createSlice({
       state.cartListId++;
       }
     },
+    //cookie 메뉴를 장바구니로 추가가
     addToCartCookie: (state, action) => {
       const product = state.cookieList.find(
         (e) => e.id === Number(action.payload)
@@ -316,16 +323,19 @@ const mainSlice = createSlice({
       state.cartListId++;
       }
     }, 
+    //장바구니에서 해당 품목을 삭제제
     removeList: (state, action) => {
       state.cartList = state.cartList.filter(
         (e) => e.cartListid !== Number(action.payload)
       );
     },
+    //Result & VipResult 컴포넌트의 "처음으로" 링크 onClick 시 실행행
     clearCart: (state) => {
       state.cartList = [];
       state.cartListId = 0;
       state.totalPrice = 0;
     },
+    //coffee 상품에 option 추가, amount 조절 후 장바구니에 추가
     setOptionCoffee: (state, action) => {
       const { id, _option1, _option2, _amount } = action.payload;
       const menu = state.coffeeList.find((e) => e.id === Number(id));
@@ -336,7 +346,7 @@ const mainSlice = createSlice({
           item.option2 === _option2
         );
         if (existing) {
-          existing.amount += _amount; // 현재 amount 만큼 추가
+          existing.amount += _amount;
         } else {
           const newMenu = {
             ...menu,
@@ -353,6 +363,7 @@ const mainSlice = createSlice({
         }
       }
     },
+    //noncoffee 상품에 option 추가, amount 조절 후 장바구니에 추가
     setOptionNoncoffee: (state, action) => {
       const { id, _option1, _option2, _amount } = action.payload;
       const item = state.nonCoffeeList.find((e) => e.id === Number(id));
@@ -378,6 +389,7 @@ const mainSlice = createSlice({
         }
       }
     },
+    //smoothie 상품에 option 추가, amount 조절 후 장바구니에 추가
       setOptionSmoothie: (state, action) => {
         const { id, _option1, _option2, _amount } = action.payload;
         const item = state.smoothieList.find((e) => e.id === Number(id));
@@ -403,6 +415,7 @@ const mainSlice = createSlice({
           }
         }
       },
+      //총 결제금액 업데이트 출력용용
       countTotalPrice:(state)=>{
         let result =0;
         for(let i of state.cartList){
@@ -410,12 +423,14 @@ const mainSlice = createSlice({
         }
         state.totalPrice = result;
       },
+      //vip의 포인트 적립 함수 (마일리지+10퍼센트 혜자다!!)
       addPoint:(state,action)=>{
         const vip = state.vipList.find((e)=>e.phone===action.payload)
         if (vip) {
           vip.point += state.totalPrice * 0.1;
         }
       },
+      //vip 포인트 사용,할인 적용 함수
       setPoint:(state,action)=>{
         const { _phone , _point } = action.payload;
         const vip = state.vipList.find((e)=>e.phone===_phone)
@@ -424,9 +439,11 @@ const mainSlice = createSlice({
         state.totalPrice -= _point;
       }
     },
+    //주문번호 증감 
       setOrderNumber:(state)=>{
         state.orderNumber+=1;
       },
+      //잘 팔린 상품 항시 업데이트 후 best 상품 품목 1가지 출력
       bestSeller: (state)=>{
         for(let i = 0; i < state.cartList.length; i++){
           state.soldList.push(state.cartList[i])

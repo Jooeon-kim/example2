@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 export default function Dessert() {
   return (
@@ -6,9 +6,9 @@ export default function Dessert() {
       <div className="menu_box">
         <div className="tab tab2">
           <ul className="depth2">
-            <li><Link to="/menu/dessert">Cake</Link></li>
-            <li><Link to="/menu/dessert/ciabatta">Ciabatta</Link></li>
-            <li><Link to="/menu/dessert/cookie">Cookie</Link></li>
+          <li><NavLink to="/menu/dessert" end>Cake</NavLink></li>
+          <li><NavLink to="/menu/dessert/ciabatta">Ciabatta</NavLink></li>
+          <li><NavLink to="/menu/dessert/cookie">Cookie</NavLink></li>
           </ul>
         </div>
         <div className="box_wrap">

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, clearCart, removeList, setAmount, countTotalPrice, bestSeller } from "./mainSlice";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 
 function Menu() {
   const dispatch = useDispatch();
@@ -29,8 +29,8 @@ function Menu() {
       <div className="menu">
         <div className="tab tab1">
           <ul className="depth1">
-            <li><Link to="/menu/drink">Drink</Link></li>
-            <li><Link to="/menu/dessert">Dessert</Link></li>
+          <li><NavLink to="/menu/drink">Drink</NavLink></li>
+          <li><NavLink to="/menu/dessert">Dessert</NavLink></li>
           </ul>
         </div>
         <Outlet />
