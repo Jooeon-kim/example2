@@ -38,9 +38,12 @@ function Vip() {
           <form onSubmit={(e) => {
             e.preventDefault();
             let point = e.target.point.value
-            dispatch(setPoint({_phone:phone,_point:point })); navigate("/vipresult/" + phone) }}>
+            if(!point){
+              alert("사용할 포인트를 입력해주세요")
+            }else{
+            dispatch(setPoint({_phone:phone,_point:point })); navigate("/vipresult/" + phone) }}}>
           <button type="submit">잔여포인트 사용하기</button>
-          <input name = "point" type="number" step={1000} min={0} max={vip.point}></input>
+          <input name = "point" type="number" step={1000} min={1000} max={vip.point} placeholder="1000"></input>
           {console.log("포인트 차감값"+point)}
           </form>
         </div>
