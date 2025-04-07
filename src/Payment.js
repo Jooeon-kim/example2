@@ -10,7 +10,7 @@ function Payment() {
     result += Number(i.amount) * Number(i.price);
   }
   return (
-    <div className="order_wrap">
+    <div className="wrapper order_wrap">
       <ul className="order_list">
         {cartList.map((e) => {
           return (

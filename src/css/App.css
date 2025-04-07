@@ -8,7 +8,7 @@ body{background-color:#000;font-family:'NotoKr','Malgun Gothic','맑은 고딕',
 
 /* menu */
 .menu .tab1{margin-bottom:12px;}
-.menu .tab2{margin-left:-10px;margin-bottom:20px;}
+.menu .tab2{margin-left:-10px;margin-bottom:10px;}
 .menu .tab ul{display:flex;gap:10px;}
 .menu .tab li{}
 .menu .tab .depth1 li a{display:block;position:relative;min-width:140px;min-height:50px;padding:12px 10px 6px;border:1px solid #ccc;border-radius:10px;text-align:center;color:#000;font-size:16px;font-weight:600;text-decoration:none;transition:all 250ms;}
@@ -16,7 +16,8 @@ body{background-color:#000;font-family:'NotoKr','Malgun Gothic','맑은 고딕',
 
 .menu .tab .depth2 li a{display:block;min-width:115px;padding:12px 10px;background-color:#eee;border-radius:10px;text-align:center;color:#000;font-size:16px;font-weight:600;text-decoration:none;}
 
-.menu .menu_box{height:600px;margin-bottom:20px;padding:20px 40px 40px;border:1px solid #666;border-radius:20px;}
+.menu .menu_box{overflow:hidden;margin-bottom:20px;padding:20px 20px 40px 40px;border:1px solid #666;border-radius:20px;}
+.menu .menu_box .box_wrap{overflow:auto;height:483px;padding-right:20px;padding-top:10px;}
 .menu .menu_box .box_wrap ul{display:flex;flex-wrap:wrap;gap:25px 20px;}
 .menu .menu_box .box_wrap li{flex-basis:calc((100% - 40px)/3);}
 .menu .menu_box .box_wrap li a{display:block;text-decoration:none;}
