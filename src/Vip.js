@@ -43,7 +43,7 @@ function Vip() {
             }else{
             dispatch(setPoint({_phone:phone,_point:point })); navigate("/vipresult/" + phone) }}}>
           <button type="submit">잔여포인트 사용하기</button>
-          <input name = "point" type="number" step={1000} min={1000} max={vip.point} placeholder="1000"></input>
+          <input name = "point" type="number" step={100} min={100} max={vip.point} placeholder="100"></input>
           {console.log("포인트 차감값"+point)}
           </form>
         </div>

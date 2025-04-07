@@ -409,8 +409,6 @@ const mainSlice = createSlice({
           state.soldList.push(state.cartList[i])
           let bestMenu =  state.soldList.sort((a,b)=> b.amount - a.amount).slice(0,1);
           state.bestMenu=bestMenu;
-          console.log("추가타이밈")
-          console.log(bestMenu);
         }
       }  
       
