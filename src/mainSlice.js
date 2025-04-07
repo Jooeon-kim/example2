@@ -383,16 +383,11 @@ const mainSlice = createSlice({
         }
       },
       setPoint:(state,action)=>{
-        
-        const vip = state.vipList.find((e)=>e.phone===action.payload)
+        const { _phone , _point } = action.payload;
+        const vip = state.vipList.find((e)=>e.phone===_phone)
         if(vip){
-        if(state.totalPrice>=vip.point){
-        state.totalPrice-=vip.point
-        vip.point=0;
-      }else{
-        vip.point-=state.totalPrice;
-        state.totalPrice=0;
-      }
+        vip.point -= _point;
+        state.totalPrice -= _point;
       }
     },
       setOrderNumber:(state)=>{
