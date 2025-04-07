@@ -16,19 +16,22 @@ function OptionNoncoffee(props) {
                 e.preventDefault();
                 let state = e.target.option1.value;
                 let size = e.target.option2.value;
-                if(!state&&!size)
-                    {
-                        state = "일회용";
-                        size = "Medium";
-                    }
-                    else if(!size){
-                        size = "Medium"
-                    }else if(!state){
-                        state="일회용";
-                    }
+                if (!state && !size) {
+                    alert("두가지 옵션 모두를 선택해주세요");
+                    return;
+                }
+                else if (!size) {
+                    alert("음료 사이즈를 선택해주세요");
+                    return;
+                } else if (!state) {
+                    alert("일회용 또는 매장용을 선택해주세요");
+                    return;
+                }
                 dispatch(setOptionNoncoffee({ id: id, _option1: state, _option2: size }))
+
+                navigate("/menu/drink/nonCoffee")
             }}>
-                
+
                 <h2>옵션선택</h2>
                 <div className="top_box">
                     <div className="title">{item.name}</div>
@@ -62,7 +65,7 @@ function OptionNoncoffee(props) {
                         </ul>
                     </div>
                 </div>
-                <button type="submit" onClick={() => { navigate("/menu/drink/nonCoffee") }}>확인</button>
+                <button type="submit">확인</button>
 
             </form>
         </div>

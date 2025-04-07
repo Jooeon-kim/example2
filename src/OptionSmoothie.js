@@ -9,27 +9,30 @@ function OptionSmoothie(props) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const item = useSelector((state) => state.main.smoothieList.find(i => i.id === Number(id)));
-    
+
     return (
         <div className="wrapper option_wrap">
             <form onSubmit={(e) => {
                 e.preventDefault();
                 let state = e.target.option1.value;
                 let size = e.target.option2.value;
-                if(!state&&!size)
-                    {
-                        state = "일회용";
-                        size = "Medium";
-                    }
-                    else if(!size){
-                        size = "Medium"
-                    }else if(!state){
-                        state="일회용";
-                    }
-                dispatch(setOptionSmoothie({ id: id, _option1: state, _option2: size }))
+                if (!state && !size) {
+                    alert("두가지 옵션 모두를 선택해주세요");
+                    return;
+                }
+                else if (!size) {
+                    alert("음료 사이즈를 선택해주세요");
+                    return;
+                } else if (!state) {
+                    alert("일회용 또는 매장용을 선택해주세요");
+                    return;
+                }
+                dispatch(setOptionSmoothie({ id: id, _option1: state, _option2: size }));
+
+                navigate("/menu/drink/smoothie")
             }}>
 
-               <h2>옵션선택</h2>
+                <h2>옵션선택</h2>
                 <div className="top_box">
                     <div className="title">{item.name}</div>
                     <div className="price">{item.price} 원</div>
@@ -63,7 +66,7 @@ function OptionSmoothie(props) {
                     </div>
                 </div>
 
-                <button type="submit" onClick={() => { navigate("/menu/drink/smoothie") }}>확인</button>
+                <button type="submit" >확인</button>
 
             </form>
         </div>
