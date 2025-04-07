@@ -61,7 +61,7 @@ const mainSlice = createSlice({
     ],
     nonCoffeeList: [
       {
-        id: 1,
+        id: 7,
         src: "/image/drink/latte_ade/ade1.jpg",
         price: 2500,
         name: "청포도 에이드",
@@ -70,7 +70,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 2,
+        id: 8,
         src: "/image/drink/latte_ade/ade2.jpg",
         price: 2500,
         name: "레몬 에이드",
@@ -79,7 +79,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 3,
+        id: 9,
         src: "/image/drink/latte_ade/ade3.jpg",
         price: 2500,
         name: "자몽 에이드",
@@ -88,7 +88,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 4,
+        id: 10,
         src: "/image/drink/latte_ade/latte1.jpg",
         price: 2500,
         name: "초코라떼 ICE",
@@ -97,7 +97,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 5,
+        id: 11,
         src: "/image/drink/latte_ade/latte2.jpg",
         price: 2500,
         name: "초코라떼 HOT",
@@ -106,7 +106,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 6,
+        id: 12,
         src: "/image/drink/latte_ade/latte3.jpg",
         price: 2500,
         name: "고구마라떼 HOT",
@@ -115,7 +115,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 7,
+        id: 13,
         src: "/image/drink/latte_ade/latte4.jpg",
         price: 2500,
         name: "고구마라떼 ICE",
@@ -126,7 +126,7 @@ const mainSlice = createSlice({
     ],
     smoothieList: [
       {
-        id: 1,
+        id: 14,
         src: "/image/drink/smoothie/smoothie1.jpg",
         price: 4800,
         name: "딸기 스무디",
@@ -135,7 +135,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 2,
+        id: 15,
         src: "/image/drink/smoothie/smoothie2.jpg",
         price: 4800,
         name: "코코넛 스무디",
@@ -144,7 +144,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 3,
+        id: 16,
         src: "/image/drink/smoothie/smoothie3.jpg",
         price: 4800,
         name: "블루베리 스무디",
@@ -153,7 +153,7 @@ const mainSlice = createSlice({
         option2: null,
       },
       {
-        id: 4,
+        id: 17,
         src: "/image/drink/smoothie/smoothie4.jpg",
         price: 4800,
         name: "망고 스무디",
@@ -249,6 +249,17 @@ const mainSlice = createSlice({
       { name: "김준홍", phone: "01093922716", point: 3000},
 
     ],
+    soldList:[],
+    bestMenu:[{
+      id: 301,
+      src: "/image/dessert/ciabatta/ciabatta2.jpg",
+      price: 5800,
+      name: "핫치킨 앤 딥치즈",
+      amount: 1,
+      option1: null,
+      option2: null,
+    }],
+
     cartList: [],
     cartListId: 1,
     totalPrice:0,
@@ -268,7 +279,7 @@ const mainSlice = createSlice({
       const product = state.cakeList.find(
         (e) =>e.id === Number(action.payload)
       );
-     
+    
       console.log("찾은 상품:", product);
       const exist = state.cartList.find((e)=>e.id===Number(action.payload))
       if(exist){
@@ -372,7 +383,7 @@ const mainSlice = createSlice({
       countTotalPrice:(state)=>{
         let result =0;
         for(let i of state.cartList){
-           result += i.amount*i.price;
+          result += i.amount*i.price;
         }
         state.totalPrice = result;
       },
@@ -392,12 +403,19 @@ const mainSlice = createSlice({
     },
       setOrderNumber:(state)=>{
         state.orderNumber+=1;
-      }
+      },
+      bestSeller: (state)=>{
+        for(let i = 0; i < state.cartList.length; i++){
+          state.soldList.push(state.cartList[i])
+          let bestMenu =  state.soldList.sort((a,b)=> b.amount - a.amount).slice(0,1);
+          state.bestMenu=bestMenu;
+          console.log("추가타이밈")
+          console.log(bestMenu);
+        }
+      }  
       
-      
-   
   },
 });
-export const { setAmount,setOrderNumber,addPoint,countTotalPrice,setPoint, addToCartCake, addToCartCookie, addToCartCiabatta, setOptionCoffee, setOptionNoncoffee, setOptionSmoothie, removeList, clearCart, setOption } =
+export const { bestSeller,setAmount,setOrderNumber,addPoint,countTotalPrice,setPoint, addToCartCake, addToCartCookie, addToCartCiabatta, setOptionCoffee, setOptionNoncoffee, setOptionSmoothie, removeList, clearCart, setOption } =
   mainSlice.actions;
 export default mainSlice;

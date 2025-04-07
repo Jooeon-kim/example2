@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { countTotalPrice } from "./mainSlice";
+import { bestSeller, countTotalPrice } from "./mainSlice";
 
 function Payment() {
   const cartList = useSelector((state) => state.main.cartList);

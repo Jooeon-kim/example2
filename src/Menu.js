@@ -1,22 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, clearCart, removeList, setAmount, countTotalPrice } from "./mainSlice";
+import { addToCart, clearCart, removeList, setAmount, countTotalPrice, bestSeller } from "./mainSlice";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 function Menu() {
   const dispatch = useDispatch();
   const cartList = useSelector((state) => state.main.cartList);
   const navigate = useNavigate();
+  const best = useSelector((state)=>state.main.bestMenu);
   let result = 0;
+  console.log(best)
   for (let i of cartList) {
     result += Number(i.amount) * Number(i.price);
   }
-
+  
   const goToPayment = () => {
     if (cartList.length === 0) {
       alert("장바구니가 비어있습니다!");
       return;
     }
     dispatch(countTotalPrice());
+    dispatch(bestSeller());
     navigate("/payment");
   };
 
