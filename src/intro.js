@@ -4,7 +4,7 @@ function Intro() {
   const navigate = useNavigate();
   return (
     <div className="index">
-      <img src="/image/intro/kimjang.png" onClick={() => navigate("/menu/drink")} />
+      <img src="/image/intro/kimjang2.png" onClick={() => navigate("/menu/drink")} />
       <h1>인트로</h1>
     </div>
   );
