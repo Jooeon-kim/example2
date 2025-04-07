@@ -34,7 +34,7 @@ input[type="text"],input[type="number"]{padding:8px 10px 9px 12px;border:1px sol
 .outer button, .btn{display:inline-block;position:relative;min-width:100px;padding:9px 12px;box-sizing:border-box;border:1px solid #666;border-radius:5px;background-color:#fff;vertical-align:top;text-align:center;color:#000;font-size:15px;font-weight:400;line-height:20px;text-decoration:none;transition:all 250ms;}
 .outer button:nth-child(n+2), .btn:nth-child(n+2){margin-left:6px;}
 .outer button:hover, .btn:hover{box-shadow:3px 4px 10px rgba(0,0,0,0.2);}
-.notice{display:block;position:relative;padding-left:25px;}
+.notice{display:block;position:relative;padding-left:26px;}
 .notice::before{display:block;position:absolute;top:calc(50% - 10px);left:0;width:20px;height:20px;background:url(../image/warning_icons.png) 0 0 no-repeat;}
 .warning{display:block;position:relative;padding-left:25px;color:#f15d4e;}
 .warning::before{display:block;position:absolute;top:calc(50% - 10px);left:0;width:20px;height:20px;background:url(../image/warning_icons.png) -40px 0 no-repeat;}
@@ -104,10 +104,16 @@ input[type="text"],input[type="number"]{padding:8px 10px 9px 12px;border:1px sol
 .vip_wrap .warning{margin-top:10px;}
 .vip_wrap .vip_name em{font-weight:600;}
 .vip_wrap .vip_point{margin-top:10px;}
+.vip_wrap .vip_point em{font-weight:600;}
 .vip_wrap .btn_box{margin-top:30px;}
 
 /* result */
 .result_wrap{border:1px solid #666;border-radius:10px;padding:30px 40px;text-align:center;}
-.result_wrap .notice{margin:50px 0 30px;font-size:18px;}
+.result_wrap .vip_name{font-size:18px;}
+.result_wrap .result_text{margin:50px 0 30px;font-size:20px;font-weight:600;}
+.result_wrap .order_num{font-size:18px;}
+.result_wrap .order_num em{font-size:20px;font-weight:600;}
 .result_wrap .total{margin-top:20px;}
-.result_wrap .btn{margin-top:20px;}
+.result_wrap .count{}
+.result_wrap .count_wrap{display:flex;justify-content:center;margin-top:20px;}
+.result_wrap .btn{margin-top:30px;}

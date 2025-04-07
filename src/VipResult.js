@@ -10,9 +10,9 @@ function VipResult() {
 
   const dispatch = useDispatch();
   const { phone } = useParams();
-  const totalPrice = useSelector((state)=>state.main.totalPrice);
-  const orderNumber= useSelector((state)=>state.main.orderNumber);
-  const vip = useSelector((state)=>state.main.vipList).find((e)=>e.phone===phone)
+  const totalPrice = useSelector((state) => state.main.totalPrice);
+  const orderNumber = useSelector((state) => state.main.orderNumber);
+  const vip = useSelector((state) => state.main.vipList).find((e) => e.phone === phone)
   const [countdown, setCountdown] = useState(10);
 
   useEffect(() => {
@@ -32,8 +32,8 @@ function VipResult() {
   }, [dispatch, navigate]);
   return (
     <div className="wrapper result_wrap">
-      <p>{vip.name}님!</p>
-      <p className="notice">주문이 완료되었습니다!</p>
+      <p className="vip_name">{vip.name}님!</p>
+      <p className="result_text">주문이 완료되었습니다!</p>
       {cartList.map((e) => {
         return (
           <div>
@@ -48,12 +48,13 @@ function VipResult() {
         );
       })}
       <div className="order_num">주문번호 <em>{orderNumber}</em></div>
-      <div className="total">
+      {/* <div className="total">
         <span>결제금액</span>
         <strong>{totalPrice}</strong>
-      </div>
+      </div> */}
       <p>잔여포인트:{vip.point}</p>
-      <p className="count">{countdown}초 후 메인화면으로 돌아갑니다.</p>
+
+      <div className="count_wrap"><p className="notice">{countdown}초 후 메인화면으로 돌아갑니다.</p></div>
 
       <Link to="/" className="btn" onClick={() => dispatch(clearCart())}>처음으로</Link>
     </div>

@@ -31,7 +31,7 @@ function Result() {
   }, [dispatch, navigate]);
   return (
     <div className="wrapper result_wrap">
-      <p className="notice">주문이 완료되었습니다!</p>
+      <p className="result_text">주문이 완료되었습니다!</p>
       {cartList.map((e) => {
         return (
           <div>
@@ -46,11 +46,11 @@ function Result() {
         );
       })}
       <div className="order_num">주문번호 <em>{orderNumber}</em></div>
-      <div className="total">
+      {/* <div className="total">
         <span>결제금액</span>
         <strong>{result}</strong>
-      </div>
-      <p className="count">{countdown}초 후 메인화면으로 돌아갑니다.</p>
+      </div> */}
+      <div className="count_wrap"><p className="notice">{countdown}초 후 메인화면으로 돌아갑니다.</p></div>
       <Link to="/" className="btn" onClick={() => { dispatch(clearCart()); dispatch(setOrderNumber()) }}>처음으로</Link>
     </div>
   );
