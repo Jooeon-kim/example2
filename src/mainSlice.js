@@ -446,11 +446,11 @@ const mainSlice = createSlice({
       setOrderNumber:(state)=>{
         state.orderNumber+=1;
       },
-      //잘 팔린 상품 항시 업데이트 후 best 상품 품목 1가지 출력
+      //잘 팔린 상품 항시 업데이트 후 best 상품 품목 3가지 출력
       bestSeller: (state)=>{
         for(let i = 0; i < state.cartList.length; i++){
           state.soldList.push(state.cartList[i])
-          let bestMenu =  state.soldList.sort((a,b)=> b.amount - a.amount).slice(0,1);
+          let bestMenu =  state.soldList.sort((a,b)=> b.amount - a.amount).slice(0,3);
           state.bestMenu=bestMenu;
         }
       }  
