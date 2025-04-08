@@ -123,7 +123,7 @@ function OptionNoncoffee() {
                         </ul>
                     </div>
                 </div>
-                <button type="submit">확인</button>
+                <button type="submit" className="btn type2 large">선택</button>
             </form>
         </div>
     );
