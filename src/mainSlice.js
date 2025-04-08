@@ -249,17 +249,11 @@ const mainSlice = createSlice({
       { name: "김준홍", phone: "01093922716", point: 3000},
 
     ],
-<<<<<<< HEAD
     soldList:[{
-=======
-    soldList:[],
-    bestMenu:[{
->>>>>>> 62f14afc730a6971eae3bcb9b40407b1cdf3f173
       id: 1,
       src: "/image/drink/coffee/coffee1.jpg",
       price: 2500,
       name: "아메리카노 ICE",
-<<<<<<< HEAD
       amount: 3,
       option1: null,
       option2: null,
@@ -302,20 +296,6 @@ const mainSlice = createSlice({
       option2: null,
     },
     {
-=======
-      amount: 1,
-      option1: null,
-      option2: null,
-    },{
-      id: 3,
-        src: "/image/drink/coffee/coffee3.jpg",
-        price: 2800,
-        name: "카페라떼 ICE",
-        amount: 1,
-        option1: null,
-        option2: null,
-    },{
->>>>>>> 62f14afc730a6971eae3bcb9b40407b1cdf3f173
       id: 100,
       src: "/image/dessert/cake/cake1.jpg",
       price: 4800,
