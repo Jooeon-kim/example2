@@ -15,13 +15,17 @@ function Intro() {
         <div className="enter">주문하기</div>
       </div>
 
-      <h2>베스트메뉴!</h2>
-      {best.map((e) => (
-        <div className="best_box">
-          <img src={e.src} className="best_img" />
-          <span className="title">{e.name}</span>
-        </div>
-      ))}
+      <div className="best_box">
+        <h2>인기 메뉴</h2>
+        <ol className="best_list">
+          {best.map((e) => (
+            <li className="best_item">
+              <img src={e.src} className="best_img" />
+              <span className="title">{e.name}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
 
     </div>
   );

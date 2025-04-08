@@ -1,3 +1,6 @@
+
+import "./css/default.css";
+import "./css/App.css";
 import { Route, Routes } from "react-router-dom";
 import Intro from "./intro";
 import Menu from "./Menu";
@@ -14,10 +17,9 @@ import Ciabatta from "./ciabatta";
 import Cookie from "./cookie";
 import Drink from "./drink";
 import Dessert from "./dessrt";
-import "./css/default.css";
-import "./css/App.css";
 import Vip from "./Vip";
 import VipResult from "./VipResult";
+
 
 function App() {
   return (
