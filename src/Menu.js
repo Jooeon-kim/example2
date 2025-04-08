@@ -8,7 +8,6 @@ function Menu() {
   const navigate = useNavigate();
   const best = useSelector((state) => state.main.bestMenu);
   let result = 0;
-  console.log(best)
   for (let i of cartList) {
     result += Number(i.amount) * Number(i.price);
   }

@@ -249,16 +249,62 @@ const mainSlice = createSlice({
       { name: "김준홍", phone: "01093922716", point: 3000},
 
     ],
-    soldList:[],
-    bestMenu:[{
+    soldList:[{
+      id: 1,
+      src: "/image/drink/coffee/coffee1.jpg",
+      price: 2500,
+      name: "아메리카노 ICE",
+      amount: 3,
+      option1: null,
+      option2: null,
+    },
+    {
+    id: 2800,
+    src: "/image/drink/coffee/coffee3.jpg",
+    price: 2800,
+    name: "카페라떼 ICE",
+    amount: 2,
+    option1: null,
+    option2: null,
+  },
+  {
+    id: 100,
+    src: "/image/dessert/cake/cake1.jpg",
+    price: 4800,
+    name: "치즈 케이크",
+    amount: 1,
+    option1: null,
+    option2: null,
+  },],
+    bestMenu:[
+      {
+        id: 1,
+        src: "/image/drink/coffee/coffee1.jpg",
+        price: 2500,
+        name: "아메리카노 ICE",
+        amount: 3,
+        option1: null,
+        option2: null,
+      },
+      {
       id: 2800,
       src: "/image/drink/coffee/coffee3.jpg",
       price: 2800,
       name: "카페라떼 ICE",
+      amount: 2,
+      option1: null,
+      option2: null,
+    },
+    {
+      id: 100,
+      src: "/image/dessert/cake/cake1.jpg",
+      price: 4800,
+      name: "치즈 케이크",
       amount: 1,
       option1: null,
       option2: null,
-    }],
+    },,
+  ],
     //장바구니
     cartList: [],
     //장바구니에 추가될때 가지는 고유 id
@@ -285,7 +331,7 @@ const mainSlice = createSlice({
         (e) =>e.id === Number(action.payload)
       );
     
-      console.log("찾은 상품:", product);
+
       const exist = state.cartList.find((e)=>e.id===Number(action.payload))
       if(exist){
           exist.amount+=1;
@@ -447,16 +493,33 @@ const mainSlice = createSlice({
         state.orderNumber+=1;
       },
       //잘 팔린 상품 항시 업데이트 후 best 상품 품목 3가지 출력
-      bestSeller: (state)=>{
-        for(let i = 0; i < state.cartList.length; i++){
-          state.soldList.push(state.cartList[i])
-          let bestMenu =  state.soldList.sort((a,b)=> b.amount - a.amount).slice(0,3);
-          state.bestMenu=bestMenu;
+      bestSeller: (state) => {
+        for (let i = 0; i < state.cartList.length; i++) {
+          const cartItem = state.cartList[i];
+          let found = false;
+      
+          for (let j = 0; j < state.soldList.length; j++) {
+            if (cartItem.id === state.soldList[j].id) {
+              state.soldList[j].amount += cartItem.amount;
+              found = true;
+              break;
+            }
+          }
+      
+          if (!found) {
+            // 깊은 복사로 새로운 객체로 추가
+            state.soldList.push({ ...cartItem });
+          }
         }
-      }  
+      
+        const sorted = [...state.soldList].sort((a, b) => b.amount - a.amount);
+        state.bestMenu = sorted.slice(0, 3);
+      
+      }
       
   },
-});
+}
+);
 export const { bestSeller,setAmount,setOrderNumber,addPoint,countTotalPrice,setPoint, addToCartCake, addToCartCookie, addToCartCiabatta, setOptionCoffee, setOptionNoncoffee, setOptionSmoothie, removeList, clearCart, setOption } =
   mainSlice.actions;
 export default mainSlice;
