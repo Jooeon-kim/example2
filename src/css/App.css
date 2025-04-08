@@ -54,7 +54,7 @@ body{background-color:#000;font-family:'NotoKr','Malgun Gothic','맑은 고딕',
 
 /* template */
 h1{font-size:24px;line-height:normal;margin-bottom:10px;}
-h2{margin-bottom:10px;font-size:20px;line-height:normal;letter-spacing:0;}
+h2{margin-bottom:10px;color:#333;font-size:20px;line-height:normal;letter-spacing:0;}
 input[type="text"],input[type="number"]{padding:8px 10px 9px 12px;border:1px solid #666;border-radius:5px;}
 
 .outer button, .btn{display:inline-block;position:relative;min-width:100px;padding:9px 12px;box-sizing:border-box;border:1px solid #666;border-radius:6px;background-color:#fff;vertical-align:top;text-align:center;color:#000;font-size:15px;font-weight:400;line-height:20px;text-decoration:none;transition:all 250ms;}
@@ -93,6 +93,8 @@ button:hover, .btn:hover{background-color:#61443a;border-color:#61443a;color:#ff
 .bottom_box .cart_item .title_wrap{display:flex;justify-content:space-between;position:relative;}
 .bottom_box .cart_item .title_wrap > *{vertical-align:top;}
 .bottom_box .cart_item .title_wrap .title{margin-right:10px;font-size:16px;font-weight:600;line-height:28px;}
+.bottom_box .cart_item .title_wrap .price{vertical-align:middle;margin-right:16px;color:#d92027;font-weight:600;}
+
 .bottom_box .cart_item .title_wrap input[type="number"]{width:50px;margin-right:5px;padding:2px 0 3px 8px;text-align:center;}
 .bottom_box .cart_item button{position:relative;padding:0;min-width:28px;min-height:28px;margin:0;font-size:0;color:transparent;}
 .bottom_box .cart_item button:hover{background-color:#fff;color:#000;}
@@ -134,8 +136,10 @@ button:hover, .btn:hover{background-color:#61443a;border-color:#61443a;color:#ff
 .option_wrap button{margin-top:10px;}
 .option_wrap .opt_item{position:relative;}
 .option_wrap .opt_item input[type="radio"]{position:absolute;opacity:0;}
-.option_wrap .opt_item input[type="radio"] + label{min-width:100px;padding:10px 12px;background-color:#fff;box-sizing:border-box;border:1px solid #ccc;border-radius:10px;text-align:center;color:#000;transition:all 250ms;}
+.option_wrap .opt_item input[type="radio"] + label{min-width:100px;padding:7px 12px;background-color:#fff;box-sizing:border-box;border:1px solid #ccc;border-radius:10px;text-align:center;color:#000;transition:all 250ms;}
+.option_wrap .opt_item input[type="radio"] + label span{display:block;margin-top:2px;color:#d92027;font-size:13px;font-weight:600;}
 .option_wrap .opt_item input[type="radio"]:checked + label{background-color:#61443a;border-color:#61443a;color:#fff;}
+.option_wrap .opt_item input[type="radio"]:checked + label span{color:#f15d4e;}
 
 /* payment_wrap 주문확인 */
 .payment_wrap .wrapper{padding-right:20px;}
@@ -148,7 +152,7 @@ button:hover, .btn:hover{background-color:#61443a;border-color:#61443a;color:#ff
 .payment_wrap .order_item .text_box .amount em{font-weight:600;}
 .payment_wrap .order_item .text_box .price{margin-left:20px;font-size:17px;font-weight:600;}
 .payment_wrap .order_item .text_box span:nth-child(n+2){margin-left:24px;}
-.payment_wrap .total{margin:20px 0;}
+.payment_wrap .total{margin:25px 0 20px;}
 
 /* vip */
 .vip_wrap .total{margin-bottom:14px;}

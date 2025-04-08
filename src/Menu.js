@@ -6,17 +6,17 @@ function Menu() {
   const dispatch = useDispatch();
   const cartList = useSelector((state) => state.main.cartList);
   const navigate = useNavigate();
-  const best = useSelector((state)=>state.main.bestMenu);
+  const best = useSelector((state) => state.main.bestMenu);
   let result = 0;
   console.log(best)
   for (let i of cartList) {
     result += Number(i.amount) * Number(i.price);
   }
   result = new Intl.NumberFormat('ko-KR').format(result);
-  
+
   const goToPayment = () => {
     if (cartList.length === 0) {
-      alert("장바구니가 비어있습니다!");
+      alert("장바구니에 메뉴를 추가해 주세요.");
       return;
     }
     dispatch(countTotalPrice());
@@ -30,8 +30,8 @@ function Menu() {
       <div className="menu">
         <div className="tab tab1">
           <ul className="depth1">
-          <li><NavLink to="/menu/drink">Drink</NavLink></li>
-          <li><NavLink to="/menu/dessert">Dessert</NavLink></li>
+            <li><NavLink to="/menu/drink">Drink</NavLink></li>
+            <li><NavLink to="/menu/dessert">Dessert</NavLink></li>
           </ul>
         </div>
         <Outlet />
@@ -50,6 +50,7 @@ function Menu() {
                     <div className="title_wrap">
                       <em className="title">{e.name}</em>
                       <span className="control_box">
+                        <span className="price">{new Intl.NumberFormat('ko-KR').format(e.price)} 원</span>
                         <input type="number" value={e.amount} onChange={(item) => dispatch(setAmount({ id: e.cartListid, amount: Number(item.target.value) }))}></input>
                         <button onClick={() => dispatch(removeList(e.cartListid))}>삭제</button>
                       </span>

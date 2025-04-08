@@ -43,7 +43,7 @@ function App() {
         <Route path="/payment" element={<Payment></Payment>}></Route>
         <Route path="/result" element={<Result></Result>}></Route>
         <Route path="/vip" element={<Vip></Vip>}></Route>
-        <Route path="/vipresult/:phone" element={<VipResult/>}></Route>
+        <Route path="/vipresult/:phone" element={<VipResult />}></Route>
 
       </Routes>
     </div>

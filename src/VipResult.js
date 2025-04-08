@@ -15,21 +15,21 @@ function VipResult() {
   const vip = useSelector((state) => state.main.vipList).find((e) => e.phone === phone)
   const [countdown, setCountdown] = useState(10);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown(prev => prev - 1);
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setCountdown(prev => prev - 1);
+  //   }, 1000);
 
-    const timeout = setTimeout(() => {
-      dispatch(clearCart());
-      navigate("/");
-    }, 10000);
+  //   const timeout = setTimeout(() => {
+  //     dispatch(clearCart());
+  //     navigate("/");
+  //   }, 10000);
 
-    return () => {
-      clearInterval(timer);
-      clearTimeout(timeout);
-    };
-  }, [dispatch, navigate]);
+  //   return () => {
+  //     clearInterval(timer);
+  //     clearTimeout(timeout);
+  //   };
+  // }, [dispatch, navigate]);
   return (
     <div className="result_wrap">
 
@@ -51,12 +51,12 @@ function VipResult() {
         <div className="order_num">주문번호 <em>{orderNumber}</em></div>
         <div className="total">
           <span>결제금액</span>
-          <strong>{totalPrice}</strong>
+          <strong>{new Intl.NumberFormat('ko-KR').format(totalPrice)}</strong>
         </div>
         <p className="point">
           <span>{vip.name}</span>님&nbsp;
           <span>잔여포인트</span>
-          <em>{vip.point} point</em>
+          <em>{new Intl.NumberFormat('ko-KR').format(vip.point)} point</em>
         </p>
 
         <div className="count_wrap"><span className="notice">{countdown}초 후 메인화면으로 돌아갑니다.</span></div>
