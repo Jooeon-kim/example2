@@ -12,10 +12,11 @@ function Vip() {
   const vipList = useSelector((state) => state.main.vipList)
   const [phone, setPhone] = useState("");
   const vip = vipInfo(phone, vipList);
-  const total = useSelector((state) => state.main.totalPrice)
+  let total = useSelector((state) => state.main.totalPrice)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   let point = vip ? vip.point : 0;
+  total = new Intl.NumberFormat('ko-KR').format(total);
   return (
     <div className="vip_wrap">
 
@@ -35,10 +36,9 @@ function Vip() {
           </form>
         </div>
 
-        {vip ? <>
-          <p className="vip_name"><em>{vip.name}</em> 회원님,</p>
+        {vip ? <><p className="vip_name"><em>{vip.name}</em> 회원님,</p>
           <p className="vip_point">잔여 포인트는 <em>{vip.point}</em> point 입니다.</p>
-          
+
           <div className="btn_box">
             <div className="save_point">
               <button className="save_btn" onClick={() => { dispatch(addPoint(phone)); navigate("/vipresult/" + phone) }}>적립하기</button>
