@@ -25,11 +25,11 @@ function Vip() {
           <span>결제금액</span>
           <strong>{total} 원</strong>
         </div>
-        <p className="notice">전화번호를 입력하세요</p>
+        <p className="notice">전화번호를 입력하세요.</p>
         <div className="phone">
           <form onSubmit={(e) => {
             e.preventDefault();
-            setPhone(e.target.text.value)
+            setPhone(e.target.text.value);
           }}>
             <input type="text" name="text" size={14}></input>
             <button type="submit">확인</button>
@@ -37,11 +37,13 @@ function Vip() {
         </div>
 
         {vip ? <><p className="vip_name"><em>{vip.name}</em> 회원님,</p>
-          <p className="vip_point">잔여 포인트는 <em>{new Intl.NumberFormat('ko-KR').format(vip.point)}</em> point 입니다.</p>
+          <p className="vip_point">잔여 포인트는 <em>{vip.point}</em> point 입니다.</p>
 
           <div className="btn_box">
-            <button className="save_btn" onClick={() => { dispatch(addPoint(phone)); navigate("/vipresult/" + phone) }}>적립하기</button>
-
+            <div className="save_point">
+              <button className="save_btn" onClick={() => { dispatch(addPoint(phone)); navigate("/vipresult/" + phone) }}>적립하기</button>
+              <span className="notice">적립률 10%</span>
+            </div>
             <form onSubmit={(e) => {
               e.preventDefault();
               let point = e.target.point.value
