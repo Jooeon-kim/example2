@@ -88,7 +88,7 @@
 
 /* layout */
 body{background-color:#000;font-family:'S-CoreDream','Malgun Gothic','맑은 고딕',Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif;}
-.outer{overflow:hidden;width:800px;/*height:940px;*/margin:0 auto;padding:20px 40px;box-sizing:border-box;background-color:#fff;}
+.outer{overflow:hidden;width:800px;height:100vh;margin:0 auto;padding:20px 40px;box-sizing:border-box;background-color:#fff;}
 
 /* menu */
 .menu .tab1{margin-bottom:12px;}
@@ -179,7 +179,7 @@ button:hover, .btn:hover{background-color:#61443a;border-color:#61443a;color:#ff
 .bottom_box .total_box .btn:hover{border-color:#d92027;background-color:#d92027;}
 
 .opt_list{display:flex;gap:10px;position:relative;margin-top:5px;padding-top:6px;padding-left:4px;/* background-color:#eeeeee */;}
-.opt_list li{position:relative;padding-left:12px;color:#323746;font-size:14px;}
+.opt_list li{position:relative;padding-left:12px;color:#323746;font-size:14px;font-weight:500;}
 .opt_list li:before{display:block;content:'';position:absolute;top:calc(50% - 1px);left:0;width:3px;height:3px;background-color:#d92027;}
 
 /* select_option */
@@ -188,7 +188,7 @@ button:hover, .btn:hover{background-color:#61443a;border-color:#61443a;color:#ff
 
 .option_wrap .title{font-size:26px;font-weight:700;}
 .option_wrap .price{margin-top:6px;font-size:22px;color:#d92027;font-weight:700;}
-.option_wrap .img{width:200px;margin:15px 0 15px;}
+.option_wrap .img{width:230px;margin:20px 0 15px;}
 
 .option_wrap .amount{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-top:1px solid #333;}
 .option_wrap .amount .left{font-size:18px;font-weight:600;}
