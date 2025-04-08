@@ -48,13 +48,17 @@ function VipResult() {
             </div>
           );
         })} */}
-        <div className="order_num">주문번호 <em>{orderNumber}</em></div>
         <div className="total">
           <span>결제금액</span>
+<<<<<<< HEAD
           <strong>{totalPrice}</strong>
+=======
+          <strong>{new Intl.NumberFormat('ko-KR').format(totalPrice)} 원</strong>
+>>>>>>> 3a404832fc9ffdd7f01560d9bdfdd128e518864d
         </div>
+        <div className="order_num">주문번호 <em>{orderNumber}</em></div>
         <p className="point">
-          <span>{vip.name}</span>님&nbsp;
+          <em>{vip.name}</em> 님&nbsp;
           <span>잔여포인트</span>
           <em>{vip.point} point</em>
         </p>

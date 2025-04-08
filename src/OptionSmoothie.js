@@ -94,12 +94,12 @@ function OptionSmoothie() {
                         <div className="opt_title">용기 선택</div>
                         <ul className="opt_ul opt1">
                             <li className="opt_item">
-                                <input type="radio" value="일회용" name="option1" id="opt1_1" />
-                                <label htmlFor="opt1_1">일회용</label>
-                            </li>
-                            <li className="opt_item">
                                 <input type="radio" value="매장용" name="option1" id="opt1_2" />
                                 <label htmlFor="opt1_2">매장용</label>
+                            </li>
+                            <li className="opt_item">
+                                <input type="radio" value="일회용" name="option1" id="opt1_1" />
+                                <label htmlFor="opt1_1">일회용</label>
                             </li>
                         </ul>
                     </div>
