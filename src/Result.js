@@ -14,21 +14,21 @@ function Result() {
   for (let i of cartList) {
     result += Number(i.amount) * Number(i.price);
   }
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setCountdown(prev => prev - 1);
-  //   }, 1000);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdown(prev => prev - 1);
+    }, 1000);
 
-  //   const timeout = setTimeout(() => {
-  //     dispatch(clearCart());
-  //     navigate("/");
-  //   }, 10000);
+    const timeout = setTimeout(() => {
+      dispatch(clearCart());
+      navigate("/");
+    }, 10000);
 
-  //   return () => {
-  //     clearInterval(timer);
-  //     clearTimeout(timeout);
-  //   };
-  // }, [dispatch, navigate]);
+    return () => {
+      clearInterval(timer);
+      clearTimeout(timeout);
+    };
+  }, [dispatch, navigate]);
   return (
     <div className="result_wrap">
 
