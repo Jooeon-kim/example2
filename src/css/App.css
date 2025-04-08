@@ -151,7 +151,8 @@ button:hover, .btn:hover{background-color:#61443a;border-color:#61443a;color:#ff
 .payment_wrap .order_item .text_box .title{font-size:17px;font-weight:600;}
 .payment_wrap .order_item .text_box .amount em{font-weight:600;}
 .payment_wrap .order_item .text_box .price{margin-left:20px;font-size:17px;font-weight:600;}
-.payment_wrap .order_item .text_box span:nth-child(n+2){margin-left:24px;}
+.payment_wrap .order_item .text_box span:nth-child(n+2){position:relative;margin-left:26px;}
+.payment_wrap .order_item .text_box span:nth-child(n+2)::before{display:block;content:'';position:absolute;top:5px;left:-12px;width:1px;height:14px;background-color:#999;transform:rotate(15deg);}
 .payment_wrap .total{margin:25px 0 20px;}
 
 /* vip */
@@ -176,11 +177,11 @@ button:hover, .btn:hover{background-color:#61443a;border-color:#61443a;color:#ff
 .result_wrap{text-align:center;}
 .result_wrap .vip_name{font-size:18px;}
 .result_wrap .result_text{margin:50px 0 30px;font-size:22px;font-weight:600;}
-.result_wrap .order_num{margin:30px 0;font-size:18px;}
-.result_wrap .order_num em{margin-left:4px;font-size:22px;font-weight:600;}
-.result_wrap .total{margin-top:20px;}
+.result_wrap .order_num{margin:30px auto;font-size:22px;width:400px;padding:50px 0;border-radius:20px;background-color:#eee;}
+.result_wrap .order_num em{display:block;margin-top:5px;color:#d92027;font-size:34px;font-weight:600;}
+.result_wrap .total{}
 .result_wrap .total span{font-size:20px;}
-.result_wrap .total strong{margin-left:16px;font-size:24px;}
+.result_wrap .total strong{margin-left:16px;font-size:24px;color:#000;}
 .result_wrap .point{margin-top:5px;font-size:17px;}
 .result_wrap .point em{margin-left:10px;font-size:18px;font-weight:600;}
 

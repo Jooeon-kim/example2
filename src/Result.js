@@ -14,21 +14,21 @@ function Result() {
   for (let i of cartList) {
     result += Number(i.amount) * Number(i.price);
   }
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown(prev => prev - 1);
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setCountdown(prev => prev - 1);
+  //   }, 1000);
 
-    const timeout = setTimeout(() => {
-      dispatch(clearCart());
-      navigate("/");
-    }, 10000);
+  //   const timeout = setTimeout(() => {
+  //     dispatch(clearCart());
+  //     navigate("/");
+  //   }, 10000);
 
-    return () => {
-      clearInterval(timer);
-      clearTimeout(timeout);
-    };
-  }, [dispatch, navigate]);
+  //   return () => {
+  //     clearInterval(timer);
+  //     clearTimeout(timeout);
+  //   };
+  // }, [dispatch, navigate]);
   return (
     <div className="result_wrap">
 
@@ -47,11 +47,11 @@ function Result() {
             </div>
           );
         })} */}
-        <div className="order_num">주문번호 <em>{orderNumber}</em></div>
         <div className="total">
           <span>결제금액</span>
           <strong>{new Intl.NumberFormat('ko-KR').format(result)} 원</strong>
         </div>
+        <div className="order_num">주문번호 <em>{orderNumber}</em></div>
         <div className="count_wrap"><span className="notice">{countdown}초 후 메인화면으로 돌아갑니다.</span></div>
         <Link to="/" className="btn large" onClick={() => { dispatch(clearCart()); dispatch(setOrderNumber()) }}>처음으로</Link>
       </div>

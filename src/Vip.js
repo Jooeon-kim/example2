@@ -37,7 +37,7 @@ function Vip() {
         </div>
 
         {vip ? <><p className="vip_name"><em>{vip.name}</em> 회원님,</p>
-          <p className="vip_point">잔여 포인트는 <em>{new Intl.NumberFormat('ko-KR').format(vip.point)}</em> point 입니다.</p>
+          <p className="vip_point">잔여 포인트는 <em>{new Intl.NumberFormat('ko-KR').format(vip.point)} point</em> 입니다.</p>
 
           <div className="btn_box">
             <div className="save_point">
