@@ -12,7 +12,8 @@ function Vip() {
   const vipList = useSelector((state) => state.main.vipList)
   const [phone, setPhone] = useState("");
   const vip = vipInfo(phone, vipList);
-  let total = useSelector((state) => state.main.totalPrice)
+  let total = useSelector((state) => state.main.totalPrice);
+  let newTotal = useSelector((state) => state.main.totalPrice);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   let point = vip ? vip.point : 0;
@@ -37,7 +38,7 @@ function Vip() {
         </div>
 
         {vip ? <><p className="vip_name"><em>{vip.name}</em> 회원님,</p>
-          <p className="vip_point">잔여 포인트는 <em>{new Intl.NumberFormat('ko-KR').format(vip.point)}</em> point 입니다.</p>
+          <p className="vip_point">잔여 포인트는 <em>{vip.point}</em> point 입니다.</p>
 
           <div className="btn_box">
             <div className="save_point">
@@ -46,10 +47,13 @@ function Vip() {
             </div>
             <form onSubmit={(e) => {
               e.preventDefault();
-              let point = e.target.point.value
+              let point = e.target.point.value;
               if (!point) {
                 alert("사용할 포인트를 입력해주세요")
-              } else {
+              }else if(point> newTotal){
+                alert("결제금액보다 큰 포인트를 입력하셨습니다")
+              }
+              else {
                 dispatch(setPoint({ _phone: phone, _point: point })); navigate("/vipresult/" + phone)
               }
             }}>
