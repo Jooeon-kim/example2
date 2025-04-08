@@ -124,9 +124,7 @@ function OptionCoffee() {
           </div>
         </div>
 
-        <button type="submit" className="btn type2 large">
-          선택
-        </button>
+        <button type="submit" className="btn type2 large">선택</button>
       </form>
     </div>
   );
