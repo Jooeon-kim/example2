@@ -12,7 +12,22 @@ function OptionCoffee() {
     );
   
     const [amount, setAmount] = useState(1); // 수량 상태
-  
+    const [showPrice , setShowPrice] = useState(item.price)
+    const [size, setSize] = useState("");
+
+    let totalPrice =  item.price;
+    
+    const handleSizeChange = (size) => {
+      let additionalPrice = 0;
+      if (size === "Medium") {
+        additionalPrice = 500;
+      } else if (size === "Large") {
+        additionalPrice = 1000;
+      }
+      setSize(size);
+      setShowPrice(item.price + additionalPrice); // 가격을 갱신
+    };
+
     const handleMinus = () => {
       if (amount > 1) setAmount(amount - 1);
     };
@@ -28,7 +43,7 @@ function OptionCoffee() {
             e.preventDefault();
             const state = e.target.option1.value;
             const size = e.target.option2.value;
-  
+            
             if (!state && !size) {
               alert("두가지 옵션 모두를 선택해주세요");
               return;
@@ -39,13 +54,20 @@ function OptionCoffee() {
               alert("일회용 또는 매장용을 선택해주세요");
               return;
             }
-  
+            if(size==="Medium"){
+              totalPrice +=500;
+            }else if(size==="Large"){
+              totalPrice +=1000;
+
+            }
+            
             dispatch(
               setOptionCoffee({
                 id,
                 _option1: state,
                 _option2: size,
                 _amount: amount,
+                _price:totalPrice,
               })
             );
   
@@ -55,7 +77,7 @@ function OptionCoffee() {
           <h2>옵션선택</h2>
           <div className="top_box">
             <div className="title">{item.name}</div>
-            <div className="price">{new Intl.NumberFormat('ko-KR').format(item.price)} 원</div>
+            <div className="price">{new Intl.NumberFormat('ko-KR').format(showPrice)} 원</div>
             <img src={item.src} className="img" />
           </div>
   
@@ -99,15 +121,15 @@ function OptionCoffee() {
               <div className="opt_title">사이즈 선택</div>
               <ul className="opt_ul opt2">
                 <li className="opt_item">
-                  <input type="radio" value="Ragular" name="option2" id="opt2_1" />
+                  <input type="radio" value="Ragular" name="option2" id="opt2_1" onChange={() => handleSizeChange("Regular")}/>
                   <label htmlFor="opt2_1">Ragular</label>
                 </li>
                 <li className="opt_item">
-                  <input type="radio" value="Medium" name="option2" id="opt2_2" />
+                  <input type="radio" value="Medium" name="option2" id="opt2_2" onChange={() => handleSizeChange("Medium")}/>
                   <label htmlFor="opt2_2">Medium</label>
                 </li>
                 <li className="opt_item">
-                  <input type="radio" value="Large" name="option2" id="opt2_3" />
+                  <input type="radio" value="Large" name="option2" id="opt2_3" onChange={() => handleSizeChange("Large")}/>
                   <label htmlFor="opt2_3">Large</label>
                 </li>
               </ul>

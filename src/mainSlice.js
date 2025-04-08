@@ -337,7 +337,7 @@ const mainSlice = createSlice({
     },
     //coffee 상품에 option 추가, amount 조절 후 장바구니에 추가
     setOptionCoffee: (state, action) => {
-      const { id, _option1, _option2, _amount } = action.payload;
+      const { id, _option1, _option2, _amount, _price } = action.payload;
       const menu = state.coffeeList.find((e) => e.id === Number(id));
       if (menu) {
         const existing = state.cartList.find((item) =>
@@ -352,7 +352,8 @@ const mainSlice = createSlice({
             ...menu,
             option1: _option1,
             option2: _option2,
-            amount: _amount
+            amount: _amount,
+            price: _price
           };
           const newCart = {
             ...newMenu,
@@ -365,7 +366,7 @@ const mainSlice = createSlice({
     },
     //noncoffee 상품에 option 추가, amount 조절 후 장바구니에 추가
     setOptionNoncoffee: (state, action) => {
-      const { id, _option1, _option2, _amount } = action.payload;
+      const { id, _option1, _option2, _amount, _price } = action.payload;
       const item = state.nonCoffeeList.find((e) => e.id === Number(id));
       if (item) {
         const exists = state.cartList.find(
@@ -382,6 +383,7 @@ const mainSlice = createSlice({
             option1: _option1,
             option2: _option2,
             amount: _amount,
+            price: _price,
             cartListid: state.cartListId,
           };
           state.cartList.push(newItem);
@@ -391,7 +393,7 @@ const mainSlice = createSlice({
     },
     //smoothie 상품에 option 추가, amount 조절 후 장바구니에 추가
       setOptionSmoothie: (state, action) => {
-        const { id, _option1, _option2, _amount } = action.payload;
+        const { id, _option1, _option2, _amount, _price } = action.payload;
         const item = state.smoothieList.find((e) => e.id === Number(id));
         if (item) {
           const exists = state.cartList.find(
@@ -408,6 +410,7 @@ const mainSlice = createSlice({
               option1: _option1,
               option2: _option2,
               amount: _amount,
+              price: _price,
               cartListid: state.cartListId,
             };
             state.cartList.push(newItem);
