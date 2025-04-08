@@ -29,7 +29,7 @@ table{width:100%;border-collapse:collapse;border-spacing:0}
 caption{overflow:hidden;position:relative;left:0;top:0;width:1px;height:1px;background:0 0;font-size:0;color:transparent;line-height:0;text-indent:100%}
 legend{overflow:hidden;position:absolute;width:1px;height:1px;background:0 0;font-size:0;color:transparent;line-height:0}
 fieldset{border:none;min-width:0}
-hr{overflow:hidden;position:absolute;height:0;width:0}
+/* hr{overflow:hidden;position:absolute;height:0;width:0} */
 :after,:before{display:none;content:''}
 .clearfix{display:block}
 .clearfix:after{content:"";display:table;clear:both}
