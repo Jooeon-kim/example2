@@ -55,7 +55,7 @@ function OptionSmoothie() {
         <h2>옵션선택</h2>
         <div className="top_box">
           <div className="title">{item.name}</div>
-          <div className="price">{item.price} 원</div>
+          <div className="price">{new Intl.NumberFormat('ko-KR').format(item.price)} 원</div>
           <img src={item.src} className="img" />
         </div>
 

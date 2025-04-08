@@ -14,7 +14,7 @@ export default function Ciabatta() {
               <img src={e.src} />
               <div className="text_box">
                 <span className="title">{e.name}</span>
-                <span className="price">{e.price}</span>
+                <span className="price">{new Intl.NumberFormat('ko-KR').format(e.price)}</span>
               </div>
             </Link>
           </li>

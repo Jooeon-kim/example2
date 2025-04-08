@@ -12,6 +12,7 @@ function Menu() {
   for (let i of cartList) {
     result += Number(i.amount) * Number(i.price);
   }
+  result = new Intl.NumberFormat('ko-KR').format(result);
   
   const goToPayment = () => {
     if (cartList.length === 0) {
