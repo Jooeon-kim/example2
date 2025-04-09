@@ -32,7 +32,7 @@ function Vip() {
             e.preventDefault();
             setPhone(e.target.text.value);
           }}>
-            <input type="text" name="text" size={14}></input>
+            <input type="text" name="text" size={14} maxLength={11}></input>
             <button type="submit">확인</button>
           </form>
         </div>

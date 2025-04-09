@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 
 
 function VipResult() {
-  const cartList = useSelector((state) => state.main.cartList);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -35,19 +34,6 @@ function VipResult() {
 
       <div className="wrapper">
         <p className="result_text">주문이 완료되었습니다!</p>
-        {/* {cartList.map((e) => {
-          return (
-            <div>
-              <span>{e.name} : {e.amount}</span>
-              {(e.option1 || e.option2) && (
-                <ul className="opt_list">
-                  {e.option1 && <li>{e.option1}</li>}
-                  {e.option2 && <li>{e.option2}</li>}
-                </ul>
-              )}
-            </div>
-          );
-        })} */}
         <div className="total">
           <span>결제금액</span>
           <strong>{new Intl.NumberFormat('ko-KR').format(totalPrice)} 원</strong>
