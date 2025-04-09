@@ -62,7 +62,6 @@ function Vip() {
                 <span>사용 포인트</span> <input name="point" type="number" step={100} min={100} max={vip.point} />
                 <span className="notice">100원단위 사용</span>
               </div>
-              {console.log("포인트 차감값" + point)}
             </form>
           </div>
         </> : phone ? <><p className="warning">회원정보가 일치하지 않습니다. 전화번호를 확인해주세요.</p></> : null}

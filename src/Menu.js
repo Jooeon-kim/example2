@@ -1,26 +1,29 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, clearCart, removeList, setAmount, countTotalPrice, bestSeller } from "./mainSlice";
-import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
+import { clearCart, removeList, setAmount, countTotalPrice, bestSeller } from "./mainSlice";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 function Menu() {
   const dispatch = useDispatch();
   const cartList = useSelector((state) => state.main.cartList);
   const navigate = useNavigate();
-  const best = useSelector((state) => state.main.bestMenu);
+
+  // 결제 금액 계산
   let result = 0;
   for (let i of cartList) {
     result += Number(i.amount) * Number(i.price);
   }
   result = new Intl.NumberFormat('ko-KR').format(result);
+  //계산끝
 
+  // 장바구니 비어있을시 alert
   const goToPayment = () => {
     if (cartList.length === 0) {
       alert("장바구니에 메뉴를 추가해 주세요.");
       return;
     }
-    dispatch(countTotalPrice());
-    dispatch(bestSeller());
-    navigate("/payment");
+    dispatch(countTotalPrice()); // 전체 금액 계산후 전역변수 저장
+    dispatch(bestSeller()); // 장바구니 품목을 best3에 반영
+    navigate("/payment"); // 결제창 이동
   };
 
   return (
