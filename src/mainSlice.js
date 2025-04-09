@@ -303,7 +303,7 @@ const mainSlice = createSlice({
       amount: 1,
       option1: null,
       option2: null,
-    },,
+    },
   ],
     //장바구니
     cartList: [],
