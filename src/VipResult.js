@@ -21,6 +21,7 @@ function VipResult() {
 
     const timeout = setTimeout(() => {
       dispatch(clearCart());
+      dispatch(setOrderNumber());
       navigate("/");
     }, 10000);
 
