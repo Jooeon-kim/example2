@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom";
-import { addToCart, setAmount, setOptionCoffee } from "./mainSlice";
+import { setOptionCoffee } from "./mainSlice";
 import { useState } from "react";
 
 function OptionCoffee() {
@@ -13,10 +13,9 @@ function OptionCoffee() {
 
   const [amount, setAmount] = useState(1); // 수량 상태
   const [showPrice, setShowPrice] = useState(item.price)
-  const [size, setSize] = useState("");
 
   let totalPrice = item.price;
-
+  // 사이즈에 따라 새로운 출력용 가격
   const handleSizeChange = (size) => {
     let additionalPrice = 0;
     if (size === "Medium") {
@@ -24,16 +23,15 @@ function OptionCoffee() {
     } else if (size === "Large") {
       additionalPrice = 1000;
     }
-    setSize(size);
     setShowPrice(item.price + additionalPrice); // 가격을 갱신
   };
 
   const handleMinus = () => {
-    if (amount > 1) setAmount(amount - 1);
+    if (amount > 1) setAmount(amount - 1); // 수량 감소
   };
 
   const handlePlus = () => {
-    setAmount(amount + 1);
+    setAmount(amount + 1); // 수량 증가
   };
 
   return (
@@ -58,7 +56,6 @@ function OptionCoffee() {
             totalPrice += 500;
           } else if (size === "Large") {
             totalPrice += 1000;
-
           }
 
           dispatch(

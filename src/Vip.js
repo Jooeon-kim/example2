@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { addPoint, countTotalPrice, setPoint } from "./mainSlice";
+import { useNavigate } from "react-router-dom";
+import { addPoint, setPoint } from "./mainSlice";
 
 function vipInfo(phone, vipList) {
   const vip = vipList.find((e) => e.phone === phone)
@@ -16,7 +16,6 @@ function Vip() {
   let newTotal = useSelector((state) => state.main.totalPrice);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  let point = vip ? vip.point : 0;
   total = new Intl.NumberFormat('ko-KR').format(total);
   return (
     <div className="vip_wrap">

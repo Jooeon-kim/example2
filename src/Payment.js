@@ -1,10 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { bestSeller, countTotalPrice } from "./mainSlice";
 
 function Payment() {
   const cartList = useSelector((state) => state.main.cartList);
-  const dispatch = useDispatch();
   let result = 0;
   for (let i of cartList) {
     result += Number(i.amount) * Number(i.price);

@@ -59,7 +59,8 @@ function Menu() {
                     </div>
                     {(e.option1 || e.option2) && (
                       <ul className="opt_list">
-                        {e.option1 && <li>{e.option1}</li>}
+                        {/*같은 옵션값이 존재할시 옵션값 li 로 출력*/}
+                        {e.option1 && <li>{e.option1}</li>} 
                         {e.option2 && <li>{e.option2}</li>}
                       </ul>
                     )}
@@ -74,6 +75,7 @@ function Menu() {
               <span>합계</span>
               <strong>{result} 원</strong>
             </div>
+            {/* 버튼 클릭시 함수 호출 */}
             <button className="btn" onClick={goToPayment}>결제하기</button>
           </div>
         </div>

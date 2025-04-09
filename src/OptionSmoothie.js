@@ -13,7 +13,6 @@ function OptionSmoothie() {
 
     const [amount, setAmount] = useState(1);
     const [showPrice, setShowPrice] = useState(item.price)
-    const [size, setSize] = useState("");
 
     let totalPrice = item.price;
 
@@ -24,7 +23,6 @@ function OptionSmoothie() {
         } else if (size === "Large") {
             additionalPrice = 1000;
         }
-        setSize(size);
         setShowPrice(item.price + additionalPrice); // 가격을 갱신
     };
     const handleMinus = () => {

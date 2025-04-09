@@ -14,7 +14,6 @@ function OptionNoncoffee() {
 
     const [amount, setAmount] = useState(1);
     const [showPrice, setShowPrice] = useState(item.price)
-    const [size, setSize] = useState("");
 
     let totalPrice = item.price;
 
@@ -25,7 +24,6 @@ function OptionNoncoffee() {
         } else if (size === "Large") {
             additionalPrice = 1000;
         }
-        setSize(size);
         setShowPrice(item.price + additionalPrice); // 가격을 갱신
     };
 

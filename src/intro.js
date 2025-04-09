@@ -1,5 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
-import jj from "./img/non_Logo.png";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 function Intro() {
   const navigate = useNavigate();
